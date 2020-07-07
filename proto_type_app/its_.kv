@@ -1,0 +1,42 @@
+#:kivy 1.8.0
+<acc_x_gps>:
+    BoxLayout:
+        orientation: 'vertical'
+        
+        Label:
+            id: error
+            text: ''
+
+        Label:
+            id: x_label
+            text: 'X: '
+
+        Label:
+            id: y_label
+            text: 'Y: '
+
+        Label:
+            id: z_label
+            text: 'Z: '
+
+        Label:
+            id: accel_status
+            text: ''
+        
+        Label:
+            id: gps_loc_label
+            text: ''
+        
+        Label:
+            id: gps_status
+            text: ''
+        
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            padding: '4dp'
+
+            ToggleButton:
+                id: toggle_button
+                text: 'Start GPS&Acc'
+                on_press: root.do_toggle()
