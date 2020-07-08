@@ -42,7 +42,6 @@ def warn_via_email(res,token,wmsg):
     else:
         return False
 
-    """Sends an Email to the default email reciver No throtteling so expect to see multipule emails on a single event"""
     with app.app_context():
         body="Current Date: "+get_cur_date()+" UTC\n "+wmsg
         msg = Message(sender=("DATA ACQUISITION SYSTEM WARNING",MAIL_USERNAME),

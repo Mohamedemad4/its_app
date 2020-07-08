@@ -24,10 +24,10 @@ def _log_data(token,speed):
     return res.status_code
 
 def test_registration():
+    "Test Registration Of a new Token"
     res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
         token=token,email=email,max_spd=max_spd
     ))
-    print(res.content)
     assert res.status_code==200
 
 def test_Double_registration():
@@ -37,6 +37,7 @@ def test_Double_registration():
     assert res.status_code==400
 
 def test_dump_speed_compliant_data():
+    "Test Dump Good drive data"
     responses=[]
     for i in range(dump_req):
        responses.append(_log_data(token,random.randint(0,max_spd-2)))
@@ -44,6 +45,7 @@ def test_dump_speed_compliant_data():
     assert sum(responses)==dump_req*200 # make sure they all are 200
 
 def test_dump_bad_token():
+    "Test Dump data with a nonexistant token"
     responses=[]
     for i in range(10):
        responses.append(_log_data(fake_token,random.randint(0,max_spd-2)))
@@ -51,6 +53,7 @@ def test_dump_bad_token():
     assert sum(responses)==10*400
 
 def test_dump_speed_exceeding_data_test():
+    "Test ump data that's over the speed limit"
     responses=[]
     for i in range(dump_req):
        responses.append(_log_data(token,random.randint(max_spd,max_spd*2)))
@@ -58,6 +61,7 @@ def test_dump_speed_exceeding_data_test():
     assert sum(responses)==dump_req*200
 
 def test_fetch_all_data_test_and_keys_match_test():
+    "Test Fetching and check if the JSON keys match"
     global time_window
     res=req.get(server_uri+"/get_data/{token}/{from_t}/{to_t}".format(
         token=token,
@@ -76,7 +80,7 @@ def test_fetch_all_data_test_and_keys_match_test():
     assert res.status_code==200
 
 def test_fetch_data_within_time_range_test():
-    print(time_window)
+    "Test time range logic"
     
     res=req.get(server_uri+"/get_data/{token}/{from_t}/{to_t}".format(
         token=token,
@@ -102,6 +106,7 @@ def test_fetch_data_within_time_range_test():
     assert time_window[1] not in time_minus_2
 
 def test_change_car_metadata_test():
+    "Test Changing Metadata"
     res=req.get(server_uri+"/change_car_metadata/{token}/{email}/{max_speed_beta}".format(
         token=token,
         email=email,
@@ -110,6 +115,7 @@ def test_change_car_metadata_test():
     assert res.status_code==200
 
 def test_change_car_metadata_nonexistant_test():
+    "Test Changing Metadata of nonexistant token"
     res=req.get(server_uri+"/change_car_metadata/{token}/{email}/{max_speed_beta}".format(
         token=fake_token,
         email=email,
