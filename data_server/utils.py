@@ -18,8 +18,8 @@ def get_cur_date():
     return datetime.utcfromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
 
 
-MAIL_USERNAME = "DAQSYS.ROCKCROSS@gmail.com"
-MAIL_PASSWORD = "DAQSYS123"
+MAIL_USERNAME = ""
+MAIL_PASSWORD = ""
 
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
@@ -35,10 +35,10 @@ mail = Mail(app)
 
 
 def warn_via_email(res,token,wmsg):
-    c.execute("INSERT INTO car_spd_warn_throt VALUES (?,?)",token,time.time())
-    c.execute("SELECT * from car_spd_warn_throt WHERE car_token=?",token)
+    c.execute("INSERT INTO car_spd_warn_throt VALUES (?,?)",(token,time.time()))
+    c.execute("SELECT * from car_spd_warn_throt WHERE car_token=?",(token,))
     if len(c.fetchall())>=MAX_THROT_ENTRIES:
-        c.execute("DELETE car_spd_warn_throt WHERE car_token=?",token)
+        c.execute("DELETE FROM car_spd_warn_throt WHERE car_token=?",(token,))
     else:
         return False
 
