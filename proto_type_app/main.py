@@ -11,7 +11,8 @@ from plyer import gps
 from plyer import accelerometer
 
 
-uri="http://192.168.1.5:7060"
+uri="http://192.168.1.10:7060"
+token="hello-world"
 
 class acc_x_gps(BoxLayout):
     def __init__(self):
@@ -85,14 +86,13 @@ class acc_x_gps(BoxLayout):
             self.ids.gps_status.text = self.gps_status
 
             try:
-                url_req=urllib.request.Request(uri+"/data_dump/{x}/{y}/{z}/{lat}/{lon}/{speed}/{accuracy}".format(
+                url_req=urllib.request.Request(uri+"/data_dump/{token}/{x}/{y}/{z}/{lat}/{lon}/{speed}/{accuracy}".format(
+                        token=token,
                         x=x_acc,y=y_acc,z=z_acc,
                         lat=self.gps_location_dict["lat"],lon=self.gps_location_dict["lon"],
                         speed=self.gps_location_dict["speed"],accuracy=self.gps_location_dict["accuracy"])
                     )
-                with urllib.request.urlopen(url_req) as response:
-                    the_page = response.read()
-                   
+                urllib.request.urlopen(url_req)
                 self.ids.error.text="" 
             except Exception as e:
                 print(e)
@@ -127,7 +127,9 @@ class acc_x_gps(BoxLayout):
 
 class its_App(App):
     def build(self):
-        return acc_x_gps()
+        mc=acc_x_gps()
+        mc.do_toggle()
+        return mc
 
     def on_pause(self):
         gps.stop()
