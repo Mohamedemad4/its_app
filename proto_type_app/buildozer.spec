@@ -7,7 +7,7 @@ title = its
 package.name = its_app
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.kivy
+package.domain = org.qateb
 
 # (str) Source code where the main.py live
 source.dir = .

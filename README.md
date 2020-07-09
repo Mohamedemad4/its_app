@@ -1,5 +1,12 @@
 # its_app
 
+### Packages
+
+ #### dashboard app
+     - using https://github.com/kivy-garden/mapview 1.0.5
+ #### prototype app
+     - using https://github.com/kivy/plyer/ v1.4.3
+
 ### Config Vars
 
 #### data_server/tests/test_api.py
