@@ -45,9 +45,16 @@ class db_mod():
         self.conn.commit() 
         return True
         
-    def get_car_metadata(self,token):
+    def get_car_metadata_by_token(self,token):
         self.c.execute("SELECT * FROM car_metadata where car_token=?",(token,))
         fs=self.c.fetchone()
         if fs==None:
             return False
         return fs
+    
+    def get_metadata_by_email(self,email):
+        self.c.execute("SELECT * FROM car_metadata WHERE email=?",(email,))
+        fa=self.c.fetchall()
+        if fa==None:
+            return False
+        return fa

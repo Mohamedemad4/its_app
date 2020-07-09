@@ -23,7 +23,7 @@ def log_requests_and_origin(f):
 def check_for_token(f):
     @functools.wraps(f)
     def wrapper(token, *args, **kwargs):
-        if db_ins.get_car_metadata(token):
+        if db_ins.get_car_metadata_by_token(token):
             return f(token,*args, **kwargs)
         return "Token Doesn't Exist!",400  
     return wrapper
@@ -33,7 +33,7 @@ def check_for_token(f):
 @log_requests_and_origin
 @check_for_token
 def log_data_dump(token,x,y,z,lat,lon,speed,accuracy):
-    metadata=db_ins.get_car_metadata(token)
+    metadata=db_ins.get_car_metadata_by_token(token)
     email,max_spd=metadata["email"],metadata["max_spd"]
     
     if float(speed)>float(max_spd):
@@ -53,7 +53,7 @@ def get_data_dump(token,from_stamp,to_stamp):
 @app.route("/register_token/<new_token>/<email>/<max_spd>/")
 @log_requests_and_origin
 def register_token(new_token,email,max_spd):
-    if db_ins.get_car_metadata(new_token):
+    if db_ins.get_car_metadata_by_token(new_token):
         return "token already in use",400
     db_ins.make_car_metadata(new_token,email,max_spd)
     return "200ok!"
@@ -67,6 +67,21 @@ def change_car_metadata(token,email,max_spd):
     db_ins.make_car_metadata(token,email,max_spd)
     return "200ok!"
 
+@app.route("/get_metadata_by_email/<email>")
+@app.route("/get_metadata_by_email/<email>/")
+def get_metadata_by_email(email):
+    metadata=db_ins.get_metadata_by_email(email)
+    if not metadata:
+        return "email isn't registered!",400
+    return jsonify(metadata)
+
+@app.route("/get_metadata_by_token/<token>")
+@app.route("/get_metadata_by_token/<token>/")
+@check_for_token
+def get_metadata_by_token(token):
+    metadata=db_ins.get_car_metadata_by_token(token)
+    return jsonify(metadata)
+    
 if __name__=="__main__":
     server = WSGIServer(("0.0.0.0",7060), app) 
     server.serve_forever()

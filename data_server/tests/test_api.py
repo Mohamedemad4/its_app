@@ -14,6 +14,7 @@ max_spd=30
 max_spd_beta=50
 lon,lat,accuracy=1.3,1.3,1.3
 CAR_DATA_KEYS=["car_token","lat","lot","speed","accuracy","Unixtimestamp"]
+TOKEN_METADATA_KEYS=["car_token","email","max_spd"]
 time_window=(0,0) 
 dump_req=50
 
@@ -33,6 +34,34 @@ def test_registration():
 def test_Double_registration():
     res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
         token=token,email=email,max_spd=max_spd
+    ))
+    assert res.status_code==400
+
+def test_get_metadata_by_token():
+    res=req.get(server_uri+"/get_metadata_by_token/{token}".format(
+        token=token
+    ))
+    assert res.status_code==200
+    json_res=json.loads(res.content)
+    assert set([i for i in json_res.keys()])==set(TOKEN_METADATA_KEYS)
+
+def test_get_metadata_by_email():
+    res=req.get(server_uri+"/get_metadata_by_email/{email}".format(
+        email=email
+    ))
+    assert res.status_code==200
+    json_res=json.loads(res.content)
+    assert set([i for i in json_res[0].keys()])==set(TOKEN_METADATA_KEYS)
+
+def test_get_metadata_by_token_non_existant():
+    res=req.get(server_uri+"/get_metadata_by_token/{token}".format(
+        token=fake_token
+    ))
+    assert res.status_code==400
+    
+def test_get_metadata_by_email_non_existant():
+    res=req.get(server_uri+"/get_metadata_by_email/{email}".format(
+        email=fake_token
     ))
     assert res.status_code==400
 
@@ -113,6 +142,11 @@ def test_change_car_metadata_test():
         max_speed_beta=max_spd_beta
     ))
     assert res.status_code==200
+    res=req.get(server_uri+"/get_metadata_by_token/{token}".format(
+        token=token
+    ))
+    assert res.status_code==200
+    assert int(json.loads(res.content)["max_spd"])==max_spd_beta
 
 def test_change_car_metadata_nonexistant_test():
     "Test Changing Metadata of nonexistant token"
