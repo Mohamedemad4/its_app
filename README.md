@@ -10,10 +10,12 @@
 ### Config Vars
 
 #### data_server/tests/test_api.py
-email is the email to register the token with
+- email is the email to register the token with
+- ```CAR_DATA_KEYS``` is the JSON keys expected as the output of the API for for the getData
 ```
     server_uri="http://localhost:7060"
     email="mohamed.emad4bubble@gmail.com"
+    CAR_DATA_KEYS=["car_token","lat","lot","speed","accuracy","Unixtimestamp"]
 ```
 #### data_server/utils.py
 email to use to send the warning to registered users

@@ -39,20 +39,12 @@ class db_mod():
         else:
             return fa
 
-    def make_car_metadata(self,token,email,max_spd,ov=False,create=True):
-       
-        if ov==True:
-            self.c.execute("DELETE FROM car_metadata where car_token = ?",(token,))
-        if ov==False:
-            self.c.execute("SELECT email from car_metadata WHERE car_token=?",(token,))
-            if self.c.fetchall()!=[]:
-                return False
-
-        if create==True:
-            self.c.execute("INSERT INTO car_metadata VALUES (?,?,?)",(token,email,max_spd))
-            self.conn.commit() 
+    def make_car_metadata(self,token,email,max_spd,ov=False):
+        self.c.execute("DELETE FROM car_metadata where car_token = ?",(token,))
+        self.c.execute("INSERT INTO car_metadata VALUES (?,?,?)",(token,email,max_spd))
+        self.conn.commit() 
         return True
-
+        
     def get_car_metadata(self,token):
         self.c.execute("SELECT * FROM car_metadata where car_token=?",(token,))
         fs=self.c.fetchone()
