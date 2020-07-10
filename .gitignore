@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-proto_type_app/bin/
+*/bin/
 .buildozer
 # C extensions
 *.so
