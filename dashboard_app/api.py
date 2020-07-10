@@ -29,3 +29,9 @@ class api:
         if self.internet:
             return True
         return False
+
+    def is_registered(self):
+        return True
+    
+    def get_current_car_cords(self):
+        return 31.2086,30.0094

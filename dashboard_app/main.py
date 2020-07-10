@@ -7,7 +7,7 @@ from kivy.uix.screenmanager import ScreenManager,Screen
 from screens.no_conn import no_conn
 from screens.onboarding import onboarding
 from screens.help_screen import help_screen
-
+from screens.map_screen import map_screen
 from api import api
 from utils import utils
 
@@ -24,8 +24,15 @@ sm.add_widget(help_screen(name="help",api_ins=api_ins,utils_ins=utils_ins))
 Builder.load_file('screens/no_conn.kv')
 sm.add_widget(no_conn(name="no_conn",api_ins=api_ins,utils_ins=utils_ins))
 
+Builder.load_file('screens/map_screen.kv')
+sm.add_widget(map_screen(name="map_screen",api_ins=api_ins,utils_ins=utils_ins))
+
 class itsd_App(App):
     def build(self):
+        if api_ins.is_registered():
+            sm.current= "map_screen"
+        else:
+            sm.current="onboarding"
         return sm
     def on_pause(self):
         return True
