@@ -13,7 +13,7 @@ from screens.options_screen import options_screen
 from api import api
 from utils import utils
 
-if platform!="android":
+if platform!="android" or platform!='ios':
     from kivy.core.window import Window
     Window.size = (1080//2,1920//2)
 
