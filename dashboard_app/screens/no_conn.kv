@@ -1,0 +1,10 @@
+#:kivy 1.8.0
+<no_conn>:
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: "help"
+            on_release: root.manager.current="help"
+        Label:
+            id: template_screen_label
+            text: 'No connection'

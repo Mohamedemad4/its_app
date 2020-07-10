@@ -1,24 +1,11 @@
-from kivy.uix.screenmanager import Screen
+from screens.template_screen import template_screen
 
-import re
-import time
-email_pat=re.compile('^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$')
-def validate_email(email):
-    if email_pat.search(email):
-        return True
-    else:
-        return False
-
-class onboarding(Screen):
-    def __init__(self,name,api_ins):
-        super().__init__()
-        self.cols = 1
-        self.rows = 2
-        self.name=name
-        self.api=api_ins
-        self.emailtb=False
-
+class onboarding(template_screen):
+    emailtb=False
     def check_onboardbox(self,ins):
+        if not self.api.check_for_internet():
+            self.manager.current="no_conn"
+
         text=ins._lines[0] #idk man,idk
         if self.emailtb:
             self._register_email(text)

@@ -5,6 +5,7 @@ class api:
         self.token="e"
         self.email="e@b.com"
         self.token_user_new="aa"
+        self.internet=False
 
     def get_cars(self):
         "returns car tokens"
@@ -23,3 +24,8 @@ class api:
     def register_email(self,email):
         if email!=self.email:
              return True
+    
+    def check_for_internet(self):
+        if self.internet:
+            return True
+        return False

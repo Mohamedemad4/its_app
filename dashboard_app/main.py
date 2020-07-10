@@ -4,19 +4,25 @@ from kivy.app import App
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager,Screen
 
+from screens.no_conn import no_conn
 from screens.onboarding import onboarding
-from screens.template_screen import template_screen
+from screens.help_screen import help_screen
 
 from api import api
+from utils import utils
 
 api_ins=api()
+utils_ins=utils()
 
 sm = ScreenManager()
 Builder.load_file('screens/onboarding.kv')
-sm.add_widget(onboarding(name="onboarding",api_ins=api_ins))
+sm.add_widget(onboarding(name="onboarding",api_ins=api_ins,utils_ins=utils_ins))
 
-Builder.load_file('screens/template_screen.kv')
-sm.add_widget(template_screen(name="template_screen",api_ins=api_ins))
+Builder.load_file('screens/help_screen.kv')
+sm.add_widget(help_screen(name="help",api_ins=api_ins,utils_ins=utils_ins))
+
+Builder.load_file('screens/no_conn.kv')
+sm.add_widget(no_conn(name="no_conn",api_ins=api_ins,utils_ins=utils_ins))
 
 class itsd_App(App):
     def build(self):
