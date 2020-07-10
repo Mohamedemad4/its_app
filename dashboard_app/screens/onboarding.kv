@@ -1,0 +1,15 @@
+#:kivy 1.8.0
+<onboarding>:
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: "help"
+            on_release: root.manager.current="help"
+        Label:
+            id: main_onboarding_label
+            text: 'Hello! Please Enter the Name of your Unit'
+
+        TextInput:
+            id: main_onboarding_input
+            multiline: False   
+            on_text_validate: root.check_onboardbox(args[0])
