@@ -31,7 +31,7 @@ class api:
         return False
 
     def is_registered(self):
-        return True
+        return False
     
     def get_current_car_cords(self):
         return 31.2086,30.0094

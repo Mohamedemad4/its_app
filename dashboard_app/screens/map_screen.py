@@ -16,7 +16,8 @@ class map_screen(template_screen):
 
         self.map_view=MapView(zoom=3, lat=lat, lon=lon)
         self.add_widget(self.map_view)
-    
+        
+        #   can't write over map_view unless I do this
         help_btn=Button(text="help",size_hint=(0.1,0.07),pos_hint={'top':1,"right":1})
         
         help_btn.bind(on_release=self.gotoHelp)
