@@ -7,6 +7,8 @@ from screens.template_screen import template_screen
 
 class options_screen(template_screen):
     def on_enter(self):
+        if not self.api.is_registered():
+            self.current.manager="onboarding"
         self.main_label=Label(text="",pos_hint={'center_y':.75})
         self.add_widget(self.main_label)
 

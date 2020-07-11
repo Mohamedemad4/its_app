@@ -4,6 +4,7 @@ from kivy.uix.textinput import TextInput
 
 class onboarding(template_screen):
     emailtb=False
+    max_spdtb=False
 
     def on_pre_enter(self):
         self.main_onboarding_label=Label(text="Hello! Please Enter the Name of your Unit",pos_hint={'top':1.2})
@@ -19,6 +20,8 @@ class onboarding(template_screen):
         text=ins._lines[0] #idk man,idk
         if self.emailtb:
             self._register_email(text)
+        elif self.max_spdtb:
+            self._maxspd(text)
         else:
             self._check_token(text) 
 
@@ -27,25 +30,37 @@ class onboarding(template_screen):
             self.main_onboarding_label.text="hmmm. We can't find that token. Please try again"
             return False
         else:
+            self.token=token
+            self.api.save_token(token)
             if not self.api.get_email_by_token(token):
                 self.main_onboarding_label.text="Welcome!\nPlease Register with your email Below"
                 self.emailtb=True
-            else:
-                if self.api.register_token(token):
+            else:# 2 options,new car same user,old car old user (used from the options screen remmember?)
+                self.api.get_all_vars()
+                if token in [i for i in self.api.tokens.keys()]:
                     self.main_onboarding_label.text="Welcome Back!"
                     self.manager.current="map_screen"
                 else:
-                    self.main_onboarding_label.text="Couldn't Register Token Please try again later"
+                    self.main_onboarding_label.text="What Would you Like your Alert speed to be?\nif your car reaches this speed we will send you and alert email" 
+                    self.main_onboarding_input.text=""
+                    self.main_onboarding_input.input_filter="float"
+                    self.max_spdtb=True
+                    self.emailtb=False
+                    self.email=self.api.email
 
     def _register_email(self,email):   
-        if not validate_email(email):
+        if not self.utils.validate_email(email):
             self.main_onboarding_label.text="hmm, The email address appears to be invalid"
             return False
         else:
-            if self.api.register_email(email):
-                self.main_onboarding_label.text="Success! your email address has been registered." 
-                time.sleep(1)    
-                self.manager.current="map_screen"  
-            else:
-                self.main_onboarding_label.text="Couldn't Register your email address it appears to be registered to another user"
-        
+            self.main_onboarding_label.text="What Would you Like your Alert speed to be?\nif your car reaches this speed we will send you and alert email" 
+            self.main_onboarding_input.text=""
+            self.main_onboarding_input.input_filter="float"
+            self.max_spdtb=True
+            self.emailtb=False
+            self.email=email
+    
+    def _maxspd(self,ms):
+        if self.api.register_user(self.token,self.email,ms):
+            self.main_onboarding_label.text="you Have been registered!"
+            self.manager.current="map_screen"
