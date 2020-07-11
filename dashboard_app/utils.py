@@ -8,7 +8,7 @@ class utils:
         self.first_call=True
         return
 
-    def validate_email(email):
+    def validate_email(self,email):
         if self.email_pat.search(email):
             return True
         else:
@@ -23,7 +23,7 @@ class utils:
     def prev_screen(self):
         r_idx=len(self.screen_stack)-2
         if r_idx<0:
-            return "map_screen"
+            return "help"
         prev_name=self.screen_stack[r_idx]
         del self.screen_stack[r_idx]
         return prev_name

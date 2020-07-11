@@ -5,7 +5,7 @@ class api:
         self.token="e"
         self.email="e@b.com"
         self.token_user_new="aa"
-        self.internet=False
+        self.internet=True
 
     def get_cars(self):
         "returns car tokens"
@@ -35,3 +35,6 @@ class api:
     
     def get_current_car_drivedata(self):
         return 31.2086,30.0094,30
+    
+    def change_email(self,new_email):
+        return True

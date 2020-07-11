@@ -35,6 +35,8 @@ class map_screen(template_screen):
     
 
     def update_map_location(self,dt):
+        if not self.api.check_for_internet():
+            self.manager.current="no_conn"
         lat,lon,spd=self.api.get_current_car_drivedata()
         self.speed_label.text= "[color=3333ff]driving at[/color] [color=FF0000]{0}/kmh[/color]".format(spd)
         marker = MapMarker(lat=lat,lon=lon)

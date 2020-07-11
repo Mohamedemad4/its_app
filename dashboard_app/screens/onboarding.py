@@ -32,6 +32,7 @@ class onboarding(template_screen):
                 self.emailtb=True
             else:
                 self.main_onboarding_label.text="Welcome Back!"
+                self.manager.current="map_screen"
 
     def _register_email(self,email):   
         if not validate_email(email):
@@ -41,7 +42,7 @@ class onboarding(template_screen):
             if self.api.register_email(email):
                 self.main_onboarding_label.text="Success! your email address has been registered." 
                 time.sleep(1)    
-                self.manager.current="template_screen"  
+                self.manager.current="map_screen"  
             else:
                 self.main_onboarding_label.text="Couldn't Register your email address it appears to be registered to another user"
         

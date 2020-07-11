@@ -22,7 +22,6 @@ MarkupSafe==1.1.1
 more-itertools==8.4.0
 packaging==20.4
 pluggy==0.13.1
-plyer==2.0.0.dev0
 py==1.9.0
 Pygments==2.6.1
 pyparsing==2.4.7

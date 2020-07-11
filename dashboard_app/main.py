@@ -13,7 +13,7 @@ from screens.options_screen import options_screen
 from api import api
 from utils import utils
 
-if platform!="android" or platform!='ios':
+if platform!="android" and platform!='ios':
     from kivy.core.window import Window
     Window.size = (1080//2,1920//2)
 
@@ -29,10 +29,11 @@ sm.add_widget(options_screen(name="options_screen",api_ins=api_ins,utils_ins=uti
 
 class itsd_App(App):
     def build(self):
-        if api_ins.is_registered():
-            sm.current= "map_screen"
-        else:
-            sm.current="onboarding"
+        #if api_ins.is_registered():
+        #    sm.current= "map_screen"
+        #else:
+        #    sm.current="onboarding"
+        sm.current="options_screen"
         return sm
     def on_pause(self):
         return True
