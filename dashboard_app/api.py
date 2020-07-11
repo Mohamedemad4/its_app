@@ -47,7 +47,7 @@ class api:
         return True
     
     def get_other_car_tokens(self):
-        return [str(i) for i in range(1,6)]#self.token,self.token_user_new]
+        return [str(i) for i in range(1,10)]#self.token,self.token_user_new]
     
     def switch_cur_car(self,token):
         return True

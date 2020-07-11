@@ -36,11 +36,10 @@ sm.add_widget(options_view_other_cars(name="options_view_other_cars",api_ins=api
 
 class itsd_App(App):
     def build(self):
-        #if api_ins.is_registered():
-        #    sm.current= "map_screen"
-        #else:
-        #    sm.current="onboarding"
-        sm.current="options_screen"
+        if api_ins.is_registered():
+            sm.current= "map_screen"
+        else:
+            sm.current="onboarding"
         return sm
     def on_pause(self):
         return True

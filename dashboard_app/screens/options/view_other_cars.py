@@ -4,6 +4,8 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.gridlayout import GridLayout
 from ..template_screen import template_screen
 
 class options_view_other_cars(template_screen):
@@ -11,13 +13,18 @@ class options_view_other_cars(template_screen):
         self.main_label=Label(text="",pos_hint={'center_y':.85})
         self.main_label.text="other cars registered to your email"
         self.add_widget(self.main_label)
-        center_y_car_btn=.75
+
+        self.btn_layout=GridLayout(cols=1, spacing=20, size_hint_y=None)
+        self.btn_layout.bind(minimum_height=self.btn_layout.setter('height'))
+
+        self.scroll_view = ScrollView(size_hint=(1, None), size=(Window.width, Window.height*.70))
         for token in self.api.get_other_car_tokens():
-            print(token)
-            self.car_btn=Button(text=token,pos_hint={"center_x":.5,"center_y":center_y_car_btn},size_hint=(.7,0.07))
-            self.car_btn.bind(on_release=self.switch_cur_car)
-            self.add_widget(self.car_btn)
-            center_y_car_btn-=.15
+            car_btn=Button(text=token,size_hint_y=None,height=Window.height*.08)
+            car_btn.bind(on_release=self.switch_cur_car)
+            self.btn_layout.add_widget(car_btn)
+
+        self.scroll_view.add_widget(self.btn_layout)
+        self.add_widget(self.scroll_view)
 
     def view_other_cars_exit_routine(self,*args):
         self.manager.current="map_screen"
