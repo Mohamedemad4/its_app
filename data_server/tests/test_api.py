@@ -24,6 +24,10 @@ def _log_data(token,speed):
     ))
     return res.status_code
 
+def test_ping():
+    res=req.get(server_uri+"/ping")
+    assert res.status_code==200
+
 def test_registration():
     "Test Registration Of a new Token"
     res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
@@ -34,6 +38,12 @@ def test_registration():
 def test_Double_registration():
     res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
         token=token,email=email,max_spd=max_spd
+    ))
+    assert res.status_code==400
+
+def test_register_unregistered_token():
+    res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
+        token=fake_token,email=email,max_spd=max_spd
     ))
     assert res.status_code==400
 

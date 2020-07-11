@@ -19,12 +19,24 @@ class db_mod():
         
         if init_db:
             self.c.execute('''CREATE TABLE car_spd
-                         (car_token VARCHAR(50),lat REAL,lot REAL,speed REAL,accuracy REAL,Unixtimestamp BIGINT)''')
+                         (car_token VARCHAR(255),lat REAL,lot REAL,speed REAL,accuracy REAL,Unixtimestamp BIGINT)''')
 
             self.c.execute('''CREATE TABLE car_metadata
-                         (car_token VARCHAR(50),email VARCHAR(255),max_spd REAL)''')
+                         (car_token VARCHAR(255),email VARCHAR(255),max_spd REAL)''')
+            
+            self.c.execute('''CREATE TABLE registered_cars
+                        (car_token VARCHAR(255))''')
+            for i in ["test-token","car1","car2","car3"]:
+                self.c.execute("INSERT INTO registered_cars VALUES (?)",(i,))
 
             self.conn.commit()
+    
+    def is_token_registered(self,token):
+        self.c.execute("SELECT * FROM registered_cars WHERE car_token=? ",(token,))
+        if self.c.fetchall()==[]:
+            return False
+        else:
+            return True
 
     def log_car_data(self,token,lat,lon,speed,accuracy,tstamp):
         self.c.execute("INSERT INTO car_spd VALUES (?,?,?,?,?,?)",(token,lat,lon,speed,accuracy,tstamp))

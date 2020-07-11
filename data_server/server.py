@@ -25,8 +25,14 @@ def check_for_token(f):
     def wrapper(token, *args, **kwargs):
         if db_ins.get_car_metadata_by_token(token):
             return f(token,*args, **kwargs)
-        return "Token Doesn't Exist!",400  
+        return jsonify({"status":"Token Doesn't Exist!"}),400  
     return wrapper
+
+@app.route("/ping")
+@app.route("/ping/")
+@log_requests_and_origin
+def ping():
+    return jsonify({"status":"ok!"})
 
 @app.route('/data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>')
 @app.route('/data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>/')
@@ -39,7 +45,7 @@ def log_data_dump(token,x,y,z,lat,lon,speed,accuracy):
     if float(speed)>float(max_spd):
         warn_via_email(email,token,"car {0} exceeded Max speed limit {1} and is running at {2}".format(token,max_spd,speed))
     db_ins.log_car_data(token,lat,lon,speed,accuracy,time.time())
-    return "200ok!"
+    return jsonify({"status":"ok!"})
 
 @app.route("/get_data/<token>/<from_stamp>/<to_stamp>")
 @app.route("/get_data/<token>/<from_stamp>/<to_stamp>/")
@@ -49,14 +55,24 @@ def get_data_dump(token,from_stamp,to_stamp):
     raw_data=db_ins.get_car_data(token,from_stamp,to_stamp)
     return jsonify(raw_data)
 
+@app.route("/is_token_registered/<token>")
+@app.route("/is_token_registered/<token>/")
+def is_token_registered(token):
+    if db_ins.is_token_registered(token):
+        return jsonify({"status":"ok!"})
+    else:
+        return jsonify({"status":"Token isn't registered"}),400
+
 @app.route("/register_token/<new_token>/<email>/<max_spd>")
 @app.route("/register_token/<new_token>/<email>/<max_spd>/")
 @log_requests_and_origin
 def register_token(new_token,email,max_spd):
     if db_ins.get_car_metadata_by_token(new_token):
-        return "token already in use",400
+        return jsonify({"status":"token already in use"}),400
+    if not db_ins.is_token_registered(new_token):
+        return jsonify({"status":"Token isn't registered"}),400
     db_ins.make_car_metadata(new_token,email,max_spd)
-    return "200ok!"
+    return jsonify({"status":"ok!"})
 
 
 @app.route("/change_car_metadata/<token>/<email>/<max_spd>")
@@ -65,14 +81,14 @@ def register_token(new_token,email,max_spd):
 @check_for_token
 def change_car_metadata(token,email,max_spd):
     db_ins.make_car_metadata(token,email,max_spd)
-    return "200ok!"
+    return jsonify({"status":"ok!"})
 
 @app.route("/get_metadata_by_email/<email>")
 @app.route("/get_metadata_by_email/<email>/")
 def get_metadata_by_email(email):
     metadata=db_ins.get_metadata_by_email(email)
     if not metadata:
-        return "email isn't registered!",400
+        return jsonify({"status":"email isn't registered!"}),400
     return jsonify(metadata)
 
 @app.route("/get_metadata_by_token/<token>")
