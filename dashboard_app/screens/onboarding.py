@@ -31,8 +31,11 @@ class onboarding(template_screen):
                 self.main_onboarding_label.text="Welcome!\nPlease Register with your email Below"
                 self.emailtb=True
             else:
-                self.main_onboarding_label.text="Welcome Back!"
-                self.manager.current="map_screen"
+                if self.api.register_token(token):
+                    self.main_onboarding_label.text="Welcome Back!"
+                    self.manager.current="map_screen"
+                else:
+                    self.main_onboarding_label.text="Couldn't Register Token Please try again later"
 
     def _register_email(self,email):   
         if not validate_email(email):

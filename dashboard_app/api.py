@@ -16,6 +16,9 @@ class api:
             return True
         return False
 
+    def register_token(self,token):
+        return True
+
     def get_email_by_token(self,token):
         if token==self.token:
             return self.email
