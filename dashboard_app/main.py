@@ -11,6 +11,7 @@ from screens.map_screen import map_screen
 from screens.options_screen import options_screen
 from screens.options.change_email import options_change_email
 from screens.options.change_alert_spd import change_alert_spd
+from screens.options.view_other_cars import options_view_other_cars
 
 from api import api
 from utils import utils
@@ -31,6 +32,7 @@ sm.add_widget(map_screen(name="map_screen",api_ins=api_ins,utils_ins=utils_ins))
 sm.add_widget(options_screen(name="options_screen",api_ins=api_ins,utils_ins=utils_ins))
 sm.add_widget(options_change_email(name="options_change_email",api_ins=api_ins,utils_ins=utils_ins))
 sm.add_widget(change_alert_spd(name="options_alert_spd",api_ins=api_ins,utils_ins=utils_ins))
+sm.add_widget(options_view_other_cars(name="options_view_other_cars",api_ins=api_ins,utils_ins=utils_ins))
 
 class itsd_App(App):
     def build(self):

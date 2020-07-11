@@ -39,5 +39,5 @@ class options_screen(template_screen):
         return
 
     def other_cars_action(self,ins):
-        self.manager.current="options_view_othercards"
+        self.manager.current="options_view_other_cars"
         return
