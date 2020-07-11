@@ -3,6 +3,7 @@
 class api:
     def __init__(self):
         self.token="e"
+        self.current_token="e" # the token that the user is interacting with rn
         self.email="e@b.com"
         self.token_user_new="aa"
         self.internet=True
@@ -40,4 +41,7 @@ class api:
         return 31.2086,30.0094,30
     
     def change_email(self,new_email):
+        return True
+    
+    def change_spd(self,new_spd):
         return True
