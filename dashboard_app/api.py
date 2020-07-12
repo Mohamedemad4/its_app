@@ -10,11 +10,19 @@ from kivy.storage.jsonstore import JsonStore
 #storage.json
 
 {
-    "appdata"{
-        "token_current":"current token the user is using to (current car in focus)",
-        "tokens":[{"car1","max_speed"}] 
-        "email":"users_email"
-    }
+   "tokens":{
+      "tokens":{
+         "test-token":44.0,
+         "car2":33.0,
+         "car3":44.0
+      }
+   },
+   "token_current":{
+      "token_current":"test-token"
+   },
+   "email":{
+      "email":"ss@gmi.com"
+   }
 }
 """
 
