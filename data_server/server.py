@@ -47,6 +47,15 @@ def log_data_dump(token,x,y,z,lat,lon,speed,accuracy):
     db_ins.log_car_data(token,lat,lon,speed,accuracy,time.time())
     return jsonify({"status":"ok!"})
 
+@app.route("/get_data_recent/<token>")
+@app.route("/get_data_recent/<token>/")
+@log_requests_and_origin
+@check_for_token
+def get_data_recent(token):
+    raw_data=db_ins.get_car_data(token)
+    return jsonify(raw_data[-1])
+
+
 @app.route("/get_data/<token>/<from_stamp>/<to_stamp>")
 @app.route("/get_data/<token>/<from_stamp>/<to_stamp>/")
 @log_requests_and_origin
@@ -54,6 +63,7 @@ def log_data_dump(token,x,y,z,lat,lon,speed,accuracy):
 def get_data_dump(token,from_stamp,to_stamp):
     raw_data=db_ins.get_car_data(token,from_stamp,to_stamp)
     return jsonify(raw_data)
+
 
 @app.route("/is_token_registered/<token>")
 @app.route("/is_token_registered/<token>/")

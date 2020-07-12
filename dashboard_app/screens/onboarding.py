@@ -17,7 +17,7 @@ class onboarding(template_screen):
     def check_onboardbox(self,ins):
         if not self.api.check_for_internet():
             self.manager.current="no_conn"
-
+            return
         text=ins._lines[0] #idk man,idk
         if self.emailtb:
             self._register_email(text)
@@ -33,7 +33,7 @@ class onboarding(template_screen):
         else:
             self.token=token
             self.api.save_token(token)
-            if not self.api.get_email_by_token(token):
+            if not self.api.get_email_by_token(token) and not self.api.is_registered():
                 self.main_onboarding_label.text="Welcome!\nPlease Register with your email Below"
                 self.emailtb=True
             else:# 2 options,new car same user,old car old user (used from the options screen remmember?)

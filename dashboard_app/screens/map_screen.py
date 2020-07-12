@@ -11,7 +11,9 @@ class map_screen(template_screen):
 
     def on_pre_enter(self,*args):
         self.map_update_event=Clock.schedule_interval(self.update_map_location,.5)
-        
+        if not self.api.check_for_internet():
+            self.manager.current="no_conn"
+            return
         lat,lon,spd=self.api.get_current_car_drivedata()
         lat,lon=round(lat,4),round(lon,4) # round the viewport to nearest n-decimals
 
@@ -37,6 +39,7 @@ class map_screen(template_screen):
     def update_map_location(self,dt):
         if not self.api.check_for_internet():
             self.manager.current="no_conn"
+            return
         lat,lon,spd=self.api.get_current_car_drivedata()
         if not lat:
             self.speed_label.text="[color=FF0000]Error Retreiving Driver Data[/color]"
