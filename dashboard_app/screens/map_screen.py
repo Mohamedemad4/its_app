@@ -38,6 +38,9 @@ class map_screen(template_screen):
         if not self.api.check_for_internet():
             self.manager.current="no_conn"
         lat,lon,spd=self.api.get_current_car_drivedata()
+        if not lat:
+            self.speed_label.text="[color=FF0000]Error Retreiving Driver Data[/color]"
+            return
         self.speed_label.text= "[color=3333ff]driving at[/color] [color=FF0000]{0}/kmh[/color]".format(spd)
         marker = MapMarker(lat=lat,lon=lon)
         self.map_view.add_marker(marker)

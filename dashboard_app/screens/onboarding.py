@@ -1,6 +1,7 @@
 from screens.template_screen import template_screen
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+from kivy.clock import Clock
 
 class onboarding(template_screen):
     emailtb=False
@@ -63,4 +64,9 @@ class onboarding(template_screen):
     def _maxspd(self,ms):
         if self.api.register_user(self.token,self.email,ms):
             self.main_onboarding_label.text="you Have been registered!"
-            self.manager.current="map_screen"
+            Clock.schedule_once(self.switch_to_mapscreen,1)
+        else:
+            self.main_onboarding_label.text="Couldn't register you please try again later"
+
+    def switch_to_mapscreen(self,*args):
+        self.manager.current="map_screen"
