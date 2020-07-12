@@ -1,5 +1,8 @@
 # its_app
-
+### Notes on the SIM868 Module
+    - it *needs* it's 2A peak current recommend connecting power to a battery
+    - SIM Goes the other way around
+    - Check ```gsm_module/src/HttpClient.ino``` for a Working SIM GSM example!
 ### Packages
 
  #### dashboard app
