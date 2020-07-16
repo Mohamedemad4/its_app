@@ -3,6 +3,7 @@
     - it *needs* it's 2A peak current recommend connecting power to a battery
     - SIM Goes the other way around
     - Check ```gsm_module/src/HttpClient.ino``` for a Working SIM GSM example!
+    - APN doens't really matter what you call it (at least Etisalat egypt)
 ### Packages
 
  #### dashboard app

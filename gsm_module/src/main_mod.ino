@@ -21,9 +21,9 @@ SoftwareSerial SerialAT(9, 8); // RX, TX
 #define HTTP_TIMEOUT 3000 //in ms
 #define SERVER_HOSTNAME "52.255.192.159"
 #define SERVER_PORT 7060
-#define GOOD_GET_REQUEST_BDLENGTH 100
+#define GOOD_GET_REQUEST_BDLENGTH 22
 
-#define dump_buff_size 70
+#define dump_buff_size 85
 char dump_buff[dump_buff_size]; 
 
 const char apn[]  = "";
@@ -42,14 +42,14 @@ TinyGsmClient client(modem); //Switch from TLS/SSL to plain old TCP/IP HTTP
 void GRPS_connect(){
    DBG("Waiting for network...");
    if (!modem.waitForNetwork()) {
-    DBG(" fail");
+    DBG("fail");
     delay(10000);
     return;
   }
   DBG("success");
 
   if (modem.isNetworkConnected()) {
-    DBG("con");
+    DBG("connected to network");
   }
   // GPRS connection parameters are usually set after network registration
     if (!modem.gprsConnect(apn, gprsUser, gprsPass)) {
@@ -92,7 +92,9 @@ void loop() {
     char *acc_chr = acc_str.c_str();
     memset(dump_buff,0,dump_buff_size);
     snprintf(dump_buff,dump_buff_size,SERVER_DUMP_URI,MACHINE_TOKEN,lat_chr,lon_chr,speed_chr,acc_chr);
-    //make_get_req(dump_buff);
+    if(make_dump_req()){
+      DBG("Failed to log data");
+    }
     delay(1000);
   }else
   {
@@ -112,17 +114,17 @@ bool getGPSData(float* lat,float* lon,float* speed,float * acc){
   return 1;
 }
 
-bool make_get_req(char uri){
+bool make_dump_req(){
   HttpClient http(client, SERVER_HOSTNAME, SERVER_PORT);
-  DBG("Requesting ",uri);
-  int err = http.get(uri);
+  DBG("Requesting ",dump_buff);
+  int err = http.get(dump_buff);
   if (err != 0) {
     DBG("Failed to connect to",SERVER_HOSTNAME,SERVER_PORT);
     delay(HTTP_TIMEOUT);
     return 1;
   }
   int status = http.responseStatusCode();
-  DBG("Status Code:",String(status,4));
+  DBG("Status Code:",String(status));
   if (!status) {
     delay(HTTP_TIMEOUT);
     return 1;
