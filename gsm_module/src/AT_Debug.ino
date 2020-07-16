@@ -12,8 +12,7 @@
 //#define TINY_GSM_MODEM_SIM800
 // #define TINY_GSM_MODEM_SIM900
 // #define TINY_GSM_MODEM_SIM808
-/*
-#define TINY_GSM_MODEM_SIM868
+/*#define TINY_GSM_MODEM_SIM868
 // #define TINY_GSM_MODEM_UBLOX
 // #define TINY_GSM_MODEM_M95
 // #define TINY_GSM_MODEM_BG96
@@ -30,18 +29,18 @@
 
 // Set serial for AT commands (to the module)
 // Use Hardware Serial on Mega, Leonardo, Micro
-#define SerialAT Serial3
+//#define SerialAT Serial3
 
 // or Software Serial on Uno, Nano
-//#include <SoftwareSerial.h>
-//SoftwareSerial SerialAT(2, 3); // RX, TX
+#include <SoftwareSerial.h>
+SoftwareSerial SerialAT(9, 8); // RX, TX
 
 #define TINY_GSM_DEBUG SerialMon
 
 #include <TinyGsmClient.h>
 
 // Module baud rate
-uint32_t rate = 115200; // Set to 0 for Auto-Detect
+uint32_t rate = 9600;//115200; // Set to 0 for Auto-Detect
 
 void setup() {
   // Set console baud rate

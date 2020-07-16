@@ -1,33 +1,34 @@
 
 #define TINY_GSM_MODEM_SIM868
 #define SerialMon Serial
-#define SerialAT Serial3
+#define TINY_GSM_DEBUG SerialMon
+#include <SoftwareSerial.h>
+SoftwareSerial SerialAT(9, 8); // RX, TX
+
+//#define DUMP_AT_COMMANDS
+//#define LOGGING  // <- Logging is for the HTTP library
 
 #include <TinyGsmClient.h>
 #include <ArduinoHttpClient.h>
 
 #define MACHINE_TOKEN "test-token"
-#define SERVER_DUMP_URI "/data_dump/%s/0/0/0/%f/%f/%f/%f/" //data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>
+#define SERVER_DUMP_URI "/data_dump/%s/0/0/0/%s/%s/%s/%s/" //data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>
 
 #if !defined(TINY_GSM_RX_BUFFER)
   #define TINY_GSM_RX_BUFFER 1024
 #endif
 
 #define HTTP_TIMEOUT 3000 //in ms
-#define SERVER_HOSTNAME "0.0.0.0"
+#define SERVER_HOSTNAME "52.255.192.159"
 #define SERVER_PORT 7060
 #define GOOD_GET_REQUEST_BDLENGTH 100
 
-#define dump_buff_size 130
+#define dump_buff_size 70
 char dump_buff[dump_buff_size]; 
 
 const char apn[]  = "";
 const char gprsUser[] = "";
 const char gprsPass[] = "";
-
-//#define DUMP_AT_COMMANDS
-#define TINY_GSM_DEBUG SerialMon
-//#define LOGGING  // <- Logging is for the HTTP library
 
 #ifdef DUMP_AT_COMMANDS
   #include <StreamDebugger.h>
@@ -62,8 +63,8 @@ void GRPS_connect(){
 }
 void setup() {
   // Set console baud rate
-  SerialMon.begin(115200);
-  SerialAT.begin(115200);
+  SerialMon.begin(9600);
+  SerialAT.begin(9600);
   DBG("Wait...");
   delay(2000);
   modem.restart();
@@ -78,18 +79,24 @@ void setup() {
 
 void loop() {
   float lat,lon,speed,acc;
-  if(getGPSData(&lat,&lon,&speed,&acc)){
-    DBG(lat);
-    DBG(lon);
-    DBG(speed); 
-    DBG(acc);
-    memset(&dump_buff,0,dump_buff_size);
-    snprintf(dump_buff,dump_buff_size,SERVER_DUMP_URI ,MACHINE_TOKEN,lat,lon,speed,acc);
-    make_get_req(dump_buff);
+  if(!getGPSData(&lat,&lon,&speed,&acc)){
+    //snprintf AVR implementation doesn't support %f so we have todo this shit instead
+    //also I am bad at cpp (sorry)
+    String lat_str=String(lat,6);
+    char *lat_chr = lat_str.c_str();
+    String lon_str=String(lon,6);
+    char *lon_chr = lon_str.c_str();
+    String spd_str=String(speed,1);
+    char *speed_chr = spd_str.c_str();
+    String acc_str=String(acc,2);
+    char *acc_chr = acc_str.c_str();
+    memset(dump_buff,0,dump_buff_size);
+    snprintf(dump_buff,dump_buff_size,SERVER_DUMP_URI,MACHINE_TOKEN,lat_chr,lon_chr,speed_chr,acc_chr);
+    //make_get_req(dump_buff);
     delay(1000);
   }else
   {
-    DBG("Couldn't");
+    DBG("!getGPSData()");
   }
 }
 
@@ -99,8 +106,6 @@ bool getGPSData(float* lat,float* lon,float* speed,float * acc){
   DBG("Requesting current GPS/GNSS/GLONASS location");
   if (modem.getGPS(lat, lon, speed, &alt, &vsat, &usat, acc,
                   &year, &month, &day, &hour, &min, &sec)) {
-    DBG("Latitude:", String(lat, 8), "\tLongitude:", String(lon, 8));
-    DBG("Accuracy:", accuracy);
     return 0;
   }
   DBG("Couldn't get GPS/GNSS/GLONASS location");
@@ -109,6 +114,7 @@ bool getGPSData(float* lat,float* lon,float* speed,float * acc){
 
 bool make_get_req(char uri){
   HttpClient http(client, SERVER_HOSTNAME, SERVER_PORT);
+  DBG("Requesting ",uri);
   int err = http.get(uri);
   if (err != 0) {
     DBG("Failed to connect to",SERVER_HOSTNAME,SERVER_PORT);
