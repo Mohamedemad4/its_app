@@ -37,13 +37,16 @@ def ping():
 @app.route('/data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>')
 @app.route('/data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>/')
 @log_requests_and_origin
-@check_for_token
 def log_data_dump(token,x,y,z,lat,lon,speed,accuracy):
+    if not db_ins.is_token_registered(token):
+        return jsonify({"status":"Token isn't registered"}),400
+
     metadata=db_ins.get_car_metadata_by_token(token)
-    email,max_spd=metadata["email"],metadata["max_spd"]
-    
-    if float(speed)>float(max_spd):
-        warn_via_email(email,token,"car {0} exceeded Max speed limit {1} and is running at {2}".format(token,max_spd,speed))
+    if metadata:
+        email,max_spd=metadata["email"],metadata["max_spd"]
+        if float(speed)>float(max_spd):
+            warn_via_email(email,token,"car {0} exceeded Max speed limit {1} and is running at {2}".format(token,max_spd,speed))
+            
     db_ins.log_car_data(token,lat,lon,speed,accuracy,time.time())
     return jsonify({"status":"ok!"})
 

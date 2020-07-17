@@ -107,7 +107,7 @@ class api:
     
     def get_current_car_drivedata(self):
         data,_=self.api_call("get_data_recent",self.current_token)
-        if not data:
+        if not data or (time.time()-data["Unixtimestamp"])>60*2: # if it has been 2 minuts since the last read disregard it
             return False,False,False
         return data["lat"],data["lot"],data["speed"]
     
