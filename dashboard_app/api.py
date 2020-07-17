@@ -52,9 +52,6 @@ class api:
         """
             
         metadata,_=self.api_call("get_metadata_by_email",self.email)
-        if not metadata:
-            return False
-
         self.storage.put("email",email=self.email)
 
         if not self.storage.exists("token_current"):
@@ -62,9 +59,11 @@ class api:
             self.current_token=metadata[0]["car_token"]
         else:
             self.current_token=self.storage["token_current"]["token_current"]
-
-        for i in metadata:
-            self.tokens.update({i["car_token"]:i["max_spd"]})
+        if metadata:
+            for i in metadata:
+                self.tokens.update({i["car_token"]:i["max_spd"]})
+        else:
+            self.tokens=self.storage.get("tokens")
         self.storage.put("tokens",tokens=self.tokens)
         return True
 

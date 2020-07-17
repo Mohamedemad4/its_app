@@ -10,9 +10,11 @@ class map_screen(template_screen):
     def gotoHelp(self,*args):self.manager.current="help"
 
     def on_pre_enter(self,*args):
-        self.map_update_event=Clock.schedule_interval(self.update_map_location,.5)
         if not self.api.check_for_internet():
             self.manager.current="no_conn"
+            return
+        if not self.api.is_registered():
+            self.manager.current="onboarding"
             return
         lat,lon,spd=self.api.get_current_car_drivedata()
         lat,lon=round(lat,4),round(lon,4) # round the viewport to nearest n-decimals
@@ -34,7 +36,7 @@ class map_screen(template_screen):
         
         options_btn.bind(on_release=self.gotoopts)
         self.add_widget(options_btn)
-    
+        self.map_update_event=Clock.schedule_interval(self.update_map_location,.5)
 
     def update_map_location(self,dt):
         if not self.api.check_for_internet():

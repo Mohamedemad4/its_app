@@ -23,7 +23,10 @@ class utils:
     def prev_screen(self):
         r_idx=len(self.screen_stack)-2
         if r_idx<0:
-            return "help"
+            return "map_screen"
         prev_name=self.screen_stack[r_idx]
         del self.screen_stack[r_idx]
-        return prev_name
+        if prev_name!="no_conn":
+            return prev_name
+        else:
+            return "map_screen" #dw map_screen has an if statement to take us to onboarding if we aren't registered

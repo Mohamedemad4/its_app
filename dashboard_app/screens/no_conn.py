@@ -10,6 +10,8 @@ class no_conn(template_screen):
         
     def check_for_conn(self,dt):
         if self.api.check_for_internet():
+            print(self.utils.prev_screen())
             self.manager.current = self.utils.prev_screen()
             Clock.unschedule(self.check_event)
+            print("COnntected")
         return
