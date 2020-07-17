@@ -14,6 +14,10 @@ class onboarding(template_screen):
         self.add_widget(self.main_onboarding_input)
         self.add_widget(self.main_onboarding_label)
 
+    def on_leave(self):
+        self.remove_widget(self.main_onboarding_label)
+        self.remove_widget(self.main_onboarding_input)
+        
     def check_onboardbox(self,ins):
         if not self.api.check_for_internet():
             self.manager.current="no_conn"

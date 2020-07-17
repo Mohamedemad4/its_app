@@ -56,8 +56,10 @@ def log_data_dump(token,x,y,z,lat,lon,speed,accuracy):
 @check_for_token
 def get_data_recent(token):
     raw_data=db_ins.get_car_data(token)
-    return jsonify(raw_data[-1])
-
+    if raw_data:
+        return jsonify(raw_data[-1])
+    else:
+        return jsonify({"status":"can't retreive speed data at this time"}),400
 
 @app.route("/get_data/<token>/<from_stamp>/<to_stamp>")
 @app.route("/get_data/<token>/<from_stamp>/<to_stamp>/")
