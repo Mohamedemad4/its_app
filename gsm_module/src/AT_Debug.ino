@@ -37,15 +37,10 @@ SoftwareSerial SerialAT(9, 8); // RX, TX
 
 #define TINY_GSM_DEBUG SerialMon
 
-#include <TinyGsmClient.h>
-
-// Module baud rate
-uint32_t rate = 9600;//115200; // Set to 0 for Auto-Detect
-
 void setup() {
   // Set console baud rate
-  SerialMon.begin(115200);
-  delay(6000);
+  SerialMon.begin(9600);
+  delay(2000);
 }
 
 void loop() {
