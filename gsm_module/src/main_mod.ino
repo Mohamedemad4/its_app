@@ -5,23 +5,24 @@
 #include <SoftwareSerial.h>
 SoftwareSerial SerialAT(9, 8); // RX, TX
 
-//#define DUMP_AT_COMMANDS
+#define DUMP_AT_COMMANDS
 //#define LOGGING  // <- Logging is for the HTTP library
 
 #include <TinyGsmClient.h>
 #include <ArduinoHttpClient.h>
+#include <EEPROM.h> 
 
 #define MACHINE_TOKEN "test-token"
 #define SERVER_DUMP_URI "/data_dump/%s/0/0/0/%s/%s/%s/%s/" //data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>
 
-#define GSM_LOC_DUMP_URI "/gsmloc_data_dump/%s"
+#define GSM_LOC_DUMP_URI "clib=%s"
 #if !defined(TINY_GSM_RX_BUFFER)
   #define TINY_GSM_RX_BUFFER 1024
 #endif
 
 #define HTTP_TIMEOUT 3000 //in ms
-#define SERVER_HOSTNAME "168.61.33.172"
-#define SERVER_PORT 7060
+#define SERVER_HOSTNAME "mohamedemad4.pythonanywhere.com"
+#define SERVER_PORT 80
 #define GOOD_GET_REQUEST_BDLENGTH 22
 
 #define dump_buff_size 85
@@ -81,22 +82,6 @@ void setup() {
   delay(15000L);
 }
 
-void _gsm_loc(){
-  DBG("looking for CLBS");
-  SerialAT.println("AT+CLBS=4,1");
-  SerialAT.setTimeout(15000L);
-  String resp=SerialAT.readStringUntil("+CLBS:");
-  SerialAT.setTimeout(1000);
-  if(content.indexOf("+CLBS:") > 0){
-    SerialMon.println(resp);
-    resp.trim();
-    char *resp_chr = resp.c_str();
-    SerialMon.println(resp_chr);
-    snprintf(gsm_loc_dump_buff,gsm_loc_dump_buff_size,resp_chr);
-    DBG("found CLBS!");
-    dump_gsm_loc();
-  }
-}
 void loop() {
   float lat,lon,speed,acc;
   if(!getGPSData(&lat,&lon,&speed,&acc)){
@@ -156,10 +141,27 @@ bool make_dump_req(){
   return 1;
 }
 
+void _gsm_loc(){
+  DBG("looking for CLBS");
+  SerialAT.println("AT+CLBS=4,1");
+  SerialAT.setTimeout(15000L);
+  String resp=SerialAT.readStringUntil("+CLBS:");
+  SerialAT.setTimeout(1000);
+  if(resp.indexOf("+CLBS:") > 0){
+    SerialMon.println(resp);
+    resp.trim();
+    char *resp_chr = resp.c_str();
+    SerialMon.println(resp_chr);
+    snprintf(gsm_loc_dump_buff,gsm_loc_dump_buff_size,resp_chr);
+    DBG("found CLBS!");
+    dump_gsm_loc();
+  }
+}
+
 bool dump_gsm_loc(){
   HttpClient http(client, SERVER_HOSTNAME, SERVER_PORT);
   DBG("Requesting ",gsm_loc_dump_buff);
-  int err = http.get(gsm_loc_dump_buff);
+  int err = http.post("/gsm_dump_loc/","text/plain",gsm_loc_dump_buff);
   if (err != 0) {
     DBG("Failed to connect to",SERVER_HOSTNAME,SERVER_PORT);
     delay(HTTP_TIMEOUT);

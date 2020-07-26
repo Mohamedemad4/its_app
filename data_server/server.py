@@ -34,6 +34,14 @@ def check_for_token(f):
 def ping():
     return jsonify({"status":"ok!"})
 
+@app.route("/gsm_dump_loc",methods=["POST"])
+@app.route("/gsm_dump_loc/",methods=["POST"])
+def gsD():
+   new_vpn_conf=str(request.data)+" "+str(time.time())+"\n"
+   with open("clib_data.txt","a+") as f:
+        f.write(str(new_vpn_conf))
+   return "oki"
+
 @app.route('/data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>')
 @app.route('/data_dump/<token>/<x>/<y>/<z>/<lat>/<lon>/<speed>/<accuracy>/')
 @log_requests_and_origin

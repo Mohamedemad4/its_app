@@ -6,7 +6,7 @@ import requests as req
 
 
 hz=.1 # real time is 2hz test time is 10hz
-server_uri="http://localhost:7060"
+server_uri="http://mohamedemad4.pythonanywhere.com"#"http://localhost:7060"
 token="test-token"
 fake_token="I-am-not-real"
 email="mohamed.emad4bubble@gmail.com"

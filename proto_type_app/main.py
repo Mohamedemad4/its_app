@@ -11,7 +11,7 @@ from plyer import gps
 from plyer import accelerometer
 
 
-uri="http://192.168.1.10:7060"
+uri="http://mohamedemad4.pythonanywhere.com"
 token="hello-world"
 
 class acc_x_gps(BoxLayout):
