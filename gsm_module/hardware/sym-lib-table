@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name esortic_hardware_lib)(type Legacy)(uri ${KIPRJMOD}/esortic_hardware_lib.lib)(options "")(descr ""))
+  (lib (name xl1509)(type Legacy)(uri ${KIPRJMOD}/xl1509.lib)(options "")(descr ""))
+)

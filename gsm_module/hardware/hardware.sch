@@ -1,0 +1,634 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Screw_Terminal_01x04 J1
+U 1 1 5F2608C9
+P 850 1475
+F 0 "J1" H 768 1050 50  0000 C CNN
+F 1 "Screw_Terminal_01x04" H 768 1141 50  0000 C CNN
+F 2 "" H 850 1475 50  0001 C CNN
+F 3 "~" H 850 1475 50  0001 C CNN
+	1    850  1475
+	-1   0    0    1   
+$EndComp
+$Comp
+L Interface_CAN_LIN:MCP2515-xSO U?
+U 1 1 5F263E6D
+P 1375 6975
+F 0 "U?" H 1375 7956 50  0000 C CNN
+F 1 "MCP2515-xSO" H 1375 7865 50  0000 C CNN
+F 2 "Package_SO:SOIC-18W_7.5x11.6mm_P1.27mm" H 1375 6075 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21801e.pdf" H 1475 6175 50  0001 C CNN
+	1    1375 6975
+	1    0    0    -1  
+$EndComp
+$Comp
+L Interface_CAN_LIN:MCP2551-I-SN U?
+U 1 1 5F2661D2
+P 2625 7400
+F 0 "U?" H 2625 7981 50  0000 C CNN
+F 1 "MCP2551-I-SN" H 2625 7890 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 2625 6900 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/devicedoc/21667d.pdf" H 2625 7400 50  0001 C CNN
+	1    2625 7400
+	1    0    0    -1  
+$EndComp
+Text GLabel 1050 1575 2    50   Input ~ 0
+12-40v
+Text GLabel 1050 1475 2    50   Input ~ 0
+GND
+Text GLabel 1050 1375 2    50   Input ~ 0
+CAN-LOW
+Text GLabel 1050 1275 2    50   Input ~ 0
+CAN-HIGH
+$Comp
+L Device:CP1_Small polcap1
+U 1 1 5F26D3DB
+P 2450 1100
+F 0 "polcap1" H 2541 1146 50  0000 L CNN
+F 1 "470uF" H 2541 1055 50  0000 L CNN
+F 2 "" H 2450 1100 50  0001 C CNN
+F 3 "~" H 2450 1100 50  0001 C CNN
+	1    2450 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:CAP C1
+U 1 1 5F26E0DF
+P 2875 1250
+F 0 "C1" H 3053 1296 50  0000 L CNN
+F 1 "100uF" H 3053 1205 50  0000 L CNN
+F 2 "" H 2875 1250 50  0001 C CNN
+F 3 "~" H 2875 1250 50  0001 C CNN
+	1    2875 1250
+	1    0    0    -1  
+$EndComp
+Text GLabel 2375 1000 0    50   Input ~ 0
+12-40v
+Wire Wire Line
+	2375 1000 2450 1000
+Connection ~ 2450 1000
+Wire Wire Line
+	2450 1000 2875 1000
+Wire Wire Line
+	2875 1000 3350 1000
+Connection ~ 2875 1000
+Wire Wire Line
+	2450 1500 2450 1200
+Wire Wire Line
+	2875 1500 2450 1500
+$Comp
+L Diode:1N5820 D1
+U 1 1 5F272774
+P 4700 1225
+F 0 "D1" V 4654 1305 50  0000 L CNN
+F 1 "1N5820" V 4745 1305 50  0000 L CNN
+F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 4700 1050 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88526/1n5820.pdf" H 4700 1225 50  0001 C CNN
+	1    4700 1225
+	0    1    1    0   
+$EndComp
+Text GLabel 2250 1500 0    50   Input ~ 0
+GND
+Wire Wire Line
+	2450 1500 2250 1500
+Connection ~ 2450 1500
+Wire Wire Line
+	2875 1500 3525 1500
+Wire Wire Line
+	3525 1500 3525 1550
+Connection ~ 2875 1500
+Wire Wire Line
+	3800 1550 3800 1500
+Connection ~ 3800 1550
+Wire Wire Line
+	4100 1500 4100 1550
+$Comp
+L pspice:INDUCTOR L1
+U 1 1 5F27D228
+P 4950 1000
+F 0 "L1" H 4950 1225 50  0000 C CNN
+F 1 "68uH" H 4950 1150 50  0000 C CNN
+F 2 "" H 4950 1000 50  0001 C CNN
+F 3 "~" H 4950 1000 50  0001 C CNN
+	1    4950 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 1550 4300 1550
+Wire Wire Line
+	4300 1550 4300 1375
+Wire Wire Line
+	4300 1375 4700 1375
+Connection ~ 4100 1550
+Wire Wire Line
+	3525 1550 3650 1550
+$Comp
+L xl1509:XL1509 U1
+U 1 1 5F28150C
+P 3850 1100
+F 0 "U1" H 3850 1567 50  0000 C CNN
+F 1 "XL1509-5.0" H 3850 1476 50  0000 C CNN
+F 2 "" V 4000 350 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/szlcsc/XLSEMI-XL1509-5-0E1_C61063.pdf" V 4000 350 50  0001 C CNN
+	1    3850 1100
+	1    0    0    -1  
+$EndComp
+Connection ~ 3650 1550
+Wire Wire Line
+	3650 1550 3800 1550
+Wire Wire Line
+	4000 1550 4100 1550
+Wire Wire Line
+	4350 1000 4700 1000
+Wire Wire Line
+	4700 1075 4700 1000
+Connection ~ 5575 1000
+Wire Wire Line
+	5575 1000 5950 1000
+Wire Wire Line
+	5575 1200 5575 1375
+Connection ~ 5575 1375
+Wire Wire Line
+	5575 1375 5875 1375
+Wire Wire Line
+	5200 1000 5575 1000
+Connection ~ 4700 1000
+Wire Wire Line
+	4700 1375 5575 1375
+Connection ~ 4700 1375
+Wire Wire Line
+	4350 900  5575 900 
+Wire Wire Line
+	5575 900  5575 1000
+Text GLabel 5950 1000 2    50   Output ~ 0
+5v
+Text GLabel 5875 1375 2    50   BiDi ~ 0
+GND
+Wire Wire Line
+	3800 1550 3900 1550
+Connection ~ 4000 1550
+Connection ~ 3900 1550
+Wire Wire Line
+	3900 1550 4000 1550
+$Comp
+L Device:CP1_Small polcap2
+U 1 1 5F283170
+P 5575 1100
+F 0 "polcap2" H 5666 1146 50  0000 L CNN
+F 1 "270uF/10v" H 5666 1055 50  0000 L CNN
+F 2 "" H 5575 1100 50  0001 C CNN
+F 3 "~" H 5575 1100 50  0001 C CNN
+	1    5575 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C6
+U 1 1 5F2AE9C9
+P 2275 3500
+F 0 "C6" H 2390 3546 50  0000 L CNN
+F 1 "4.7uF" H 2390 3455 50  0000 L CNN
+F 2 "" H 2313 3350 50  0001 C CNN
+F 3 "~" H 2275 3500 50  0001 C CNN
+	1    2275 3500
+	1    0    0    1   
+$EndComp
+Connection ~ 2275 3350
+Wire Wire Line
+	1350 3350 1800 3350
+$Comp
+L Device:C C5
+U 1 1 5F2B13E0
+P 1800 3500
+F 0 "C5" H 1915 3546 50  0000 L CNN
+F 1 "100nF" H 1915 3455 50  0000 L CNN
+F 2 "" H 1838 3350 50  0001 C CNN
+F 3 "~" H 1800 3500 50  0001 C CNN
+	1    1800 3500
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 5F2AF9BD
+P 1350 3500
+F 0 "C4" H 1465 3546 50  0000 L CNN
+F 1 "100nF" H 1465 3455 50  0000 L CNN
+F 2 "" H 1388 3350 50  0001 C CNN
+F 3 "~" H 1350 3500 50  0001 C CNN
+	1    1350 3500
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	3000 3775 3025 3775
+$Comp
+L MCU_ST_STM32F0:STM32F030F4Px U2
+U 1 1 5F25C437
+P 3025 4475
+F 0 "U2" H 3025 3586 50  0000 C CNN
+F 1 "STM32F030F4Px" H 3025 3495 50  0000 C CNN
+F 2 "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm" H 2625 3775 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00088500.pdf" H 3025 4475 50  0001 C CNN
+	1    3025 4475
+	1    0    0    -1  
+$EndComp
+Connection ~ 1800 3350
+Wire Wire Line
+	1800 3350 2275 3350
+Connection ~ 3025 3775
+Wire Wire Line
+	3025 3775 3125 3775
+Text GLabel 3025 5275 2    50   Input ~ 0
+GND
+$Comp
+L Device:R R4
+U 1 1 5F2C4135
+P 2375 3975
+F 0 "R4" V 2168 3975 50  0000 C CNN
+F 1 "6.8k" V 2259 3975 50  0000 C CNN
+F 2 "" V 2305 3975 50  0001 C CNN
+F 3 "~" H 2375 3975 50  0001 C CNN
+	1    2375 3975
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2225 3975 2225 3825
+Wire Wire Line
+	2225 3825 3025 3825
+Wire Wire Line
+	3025 3825 3025 3775
+$Comp
+L Device:R R5
+U 1 1 5F2C9BE9
+P 2375 4175
+F 0 "R5" V 2168 4175 50  0000 C CNN
+F 1 "6.8k" V 2259 4175 50  0000 C CNN
+F 2 "" V 2305 4175 50  0001 C CNN
+F 3 "~" H 2375 4175 50  0001 C CNN
+	1    2375 4175
+	0    1    1    0   
+$EndComp
+Connection ~ 2225 3975
+Wire Wire Line
+	2225 3975 2075 3975
+Wire Wire Line
+	2225 5275 3025 5275
+$Comp
+L Connector:Conn_01x05_Male J2
+U 1 1 5F2D262B
+P 1675 4550
+F 0 "J2" H 1783 4931 50  0000 C CNN
+F 1 "Programming interface" H 1783 4840 50  0000 C CNN
+F 2 "" H 1675 4550 50  0001 C CNN
+F 3 "~" H 1675 4550 50  0001 C CNN
+	1    1675 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2075 3975 2075 4350
+Wire Wire Line
+	2075 4350 1875 4350
+Wire Wire Line
+	2225 5275 1875 5275
+Wire Wire Line
+	1875 5275 1875 4750
+Connection ~ 2225 5275
+Wire Wire Line
+	2225 4450 1875 4450
+Wire Wire Line
+	2225 4175 2225 4450
+Connection ~ 2225 4450
+Wire Wire Line
+	2225 4450 2225 5275
+Wire Wire Line
+	1975 5550 1975 4650
+Wire Wire Line
+	1975 4650 1875 4650
+Wire Wire Line
+	2075 5625 2075 4550
+Wire Wire Line
+	2075 4550 1875 4550
+Wire Wire Line
+	3525 5075 4375 5075
+Wire Wire Line
+	2275 3350 2700 3350
+$Comp
+L Device:C C7
+U 1 1 5F2F3561
+P 2700 3500
+F 0 "C7" H 2815 3546 50  0000 L CNN
+F 1 "1uF" H 2815 3455 50  0000 L CNN
+F 2 "" H 2738 3350 50  0001 C CNN
+F 3 "~" H 2700 3500 50  0001 C CNN
+	1    2700 3500
+	1    0    0    1   
+$EndComp
+Connection ~ 2700 3350
+$Comp
+L Device:C C8
+U 1 1 5F2F40E3
+P 3025 3500
+F 0 "C8" H 3140 3546 50  0000 L CNN
+F 1 "10uF" H 3140 3455 50  0000 L CNN
+F 2 "" H 3063 3350 50  0001 C CNN
+F 3 "~" H 3025 3500 50  0001 C CNN
+	1    3025 3500
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	2700 3350 3025 3350
+Text GLabel 4200 4875 2    50   Input ~ 0
+STM-SIM8xx_BridgeRX
+Text GLabel 4200 4775 2    50   Input ~ 0
+STM-SIM8xx_BridgeTX
+$Comp
+L Device:Jumper JP2
+U 1 1 5F32E3B4
+P 3900 4875
+F 0 "JP2" H 3900 5025 50  0001 C CNN
+F 1 "Programming Jumpers" H 3900 5048 50  0001 C CNN
+F 2 "" H 3900 4875 50  0001 C CNN
+F 3 "~" H 3900 4875 50  0001 C CNN
+	1    3900 4875
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:Jumper JP1
+U 1 1 5F330183
+P 3900 4775
+F 0 "JP1" H 4000 5025 50  0000 C CNN
+F 1 "Programming Jumpers" H 4025 4950 50  0000 C CNN
+F 2 "" H 3900 4775 50  0001 C CNN
+F 3 "~" H 3900 4775 50  0001 C CNN
+	1    3900 4775
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3525 4875 3575 4875
+Wire Wire Line
+	3525 4775 3550 4775
+Wire Wire Line
+	1975 5550 3550 5550
+Wire Wire Line
+	3550 4775 3550 5550
+Connection ~ 3550 4775
+Wire Wire Line
+	3550 4775 3600 4775
+Wire Wire Line
+	3575 4875 3575 5625
+Connection ~ 3575 4875
+Wire Wire Line
+	3575 4875 3600 4875
+Wire Wire Line
+	3575 5625 2075 5625
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 5F2DFC4D
+P 4650 5550
+F 0 "J3" H 4758 5731 50  0000 C CNN
+F 1 "SWD Debugging Interface" H 4758 5640 50  0000 C CNN
+F 2 "" H 4650 5550 50  0001 C CNN
+F 3 "~" H 4650 5550 50  0001 C CNN
+	1    4650 5550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4450 4975 4450 5450
+Wire Wire Line
+	3525 4975 4450 4975
+Wire Wire Line
+	4375 5075 4375 5550
+Wire Wire Line
+	4375 5550 4450 5550
+$Comp
+L Regulator_Linear:AMS1117-3.3 U4
+U 1 1 5F3C655D
+P 1025 3350
+F 0 "U4" H 1025 3592 50  0000 C CNN
+F 1 "AMS1117-3.3" H 1025 3501 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 1025 3550 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 1125 3100 50  0001 C CNN
+	1    1025 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1025 3650 1350 3650
+Connection ~ 1350 3650
+Wire Wire Line
+	1350 3650 1800 3650
+Connection ~ 1800 3650
+Connection ~ 2275 3650
+Connection ~ 2700 3650
+Wire Wire Line
+	2700 3650 3025 3650
+Wire Wire Line
+	1800 3650 2275 3650
+Wire Wire Line
+	2275 3650 2700 3650
+Wire Wire Line
+	1325 3350 1350 3350
+Connection ~ 1350 3350
+Wire Wire Line
+	3025 3650 3025 3775
+Connection ~ 3025 3650
+Text GLabel 725  3350 0    50   Input ~ 0
+5v
+Text GLabel 800  3650 0    50   Input ~ 0
+GND
+Wire Wire Line
+	800  3650 1025 3650
+Connection ~ 1025 3650
+Connection ~ 6800 3275
+Wire Wire Line
+	6700 3275 6800 3275
+Connection ~ 8200 2250
+Wire Wire Line
+	8200 2250 8200 2475
+$Comp
+L Device:R R9
+U 1 1 5F3838C5
+P 6350 2100
+F 0 "R9" H 6281 2054 50  0000 R CNN
+F 1 "330k" H 6281 2145 50  0000 R CNN
+F 2 "" V 6280 2100 50  0001 C CNN
+F 3 "~" H 6350 2100 50  0001 C CNN
+	1    6350 2100
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R10
+U 1 1 5F3838CB
+P 6700 2100
+F 0 "R10" H 6631 2054 50  0000 R CNN
+F 1 "100k" H 6631 2145 50  0000 R CNN
+F 2 "" V 6630 2100 50  0001 C CNN
+F 3 "~" H 6700 2100 50  0001 C CNN
+	1    6700 2100
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 5F3838D1
+P 6350 2525
+F 0 "R11" H 6281 2479 50  0000 R CNN
+F 1 "82k" H 6281 2570 50  0000 R CNN
+F 2 "" V 6280 2525 50  0001 C CNN
+F 3 "~" H 6350 2525 50  0001 C CNN
+	1    6350 2525
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6350 1950 6700 1950
+Text GLabel 6150 1950 0    50   Input ~ 0
+GND
+Wire Wire Line
+	6350 2375 6350 2250
+Wire Wire Line
+	6700 2250 6350 2250
+Connection ~ 6350 2250
+Text GLabel 6350 2675 3    50   Input ~ 0
+5v
+Connection ~ 6700 2250
+Wire Wire Line
+	6700 2250 6900 2250
+Wire Wire Line
+	6700 1950 6900 1950
+Connection ~ 6700 1950
+Wire Wire Line
+	6150 1950 6350 1950
+Connection ~ 6350 1950
+Text Notes 7975 2400 2    50   ~ 0
+5v to 4V voltage dvider use E12. 
+$Comp
+L Device:C C9
+U 1 1 5F393A30
+P 6900 2100
+F 0 "C9" H 7015 2146 50  0000 L CNN
+F 1 "330uF" H 7015 2055 50  0000 L CNN
+F 2 "" H 6938 1950 50  0001 C CNN
+F 3 "~" H 6900 2100 50  0001 C CNN
+	1    6900 2100
+	1    0    0    -1  
+$EndComp
+Connection ~ 6900 1950
+Connection ~ 6900 2250
+$Comp
+L Device:C C10
+U 1 1 5F394E45
+P 7350 2100
+F 0 "C10" H 7465 2146 50  0000 L CNN
+F 1 "100nF" H 7465 2055 50  0000 L CNN
+F 2 "" H 7388 1950 50  0001 C CNN
+F 3 "~" H 7350 2100 50  0001 C CNN
+	1    7350 2100
+	1    0    0    -1  
+$EndComp
+Text Notes 6925 1850 0    50   ~ 0
+ESR=0.7ohm\nsee Hw design p.17 fig.8
+$Comp
+L Device:C C11
+U 1 1 5F399CE5
+P 7800 2100
+F 0 "C11" H 7915 2146 50  0000 L CNN
+F 1 "10pF" H 7915 2055 50  0000 L CNN
+F 2 "" H 7838 1950 50  0001 C CNN
+F 3 "~" H 7800 2100 50  0001 C CNN
+	1    7800 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C12
+U 1 1 5F39DF0E
+P 8200 2100
+F 0 "C12" H 8315 2146 50  0000 L CNN
+F 1 "33pF" H 8315 2055 50  0000 L CNN
+F 2 "" H 8238 1950 50  0001 C CNN
+F 3 "~" H 8200 2100 50  0001 C CNN
+	1    8200 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 1950 7350 1950
+Wire Wire Line
+	6900 2250 7350 2250
+Connection ~ 7350 1950
+Wire Wire Line
+	7350 1950 7800 1950
+Connection ~ 7350 2250
+Wire Wire Line
+	7350 2250 7800 2250
+Connection ~ 7800 1950
+Wire Wire Line
+	7800 1950 8200 1950
+Connection ~ 7800 2250
+Wire Wire Line
+	7800 2250 8200 2250
+Text GLabel 8000 4675 3    50   BiDi ~ 0
+GND
+Wire Wire Line
+	6800 3275 6900 3275
+Wire Wire Line
+	6800 3275 6800 3425
+Text GLabel 6800 3725 3    50   Output ~ 0
+GND
+$Comp
+L Device:R R8
+U 1 1 5F315F8E
+P 6800 3575
+F 0 "R8" H 6870 3621 50  0000 L CNN
+F 1 "5.6k" H 6870 3530 50  0000 L CNN
+F 2 "" V 6730 3575 50  0001 C CNN
+F 3 "~" H 6800 3575 50  0001 C CNN
+	1    6800 3575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5F30E77B
+P 7050 3275
+F 0 "R7" V 7257 3275 50  0000 C CNN
+F 1 "1k" V 7166 3275 50  0000 C CNN
+F 2 "" V 6980 3275 50  0001 C CNN
+F 3 "~" H 7050 3275 50  0001 C CNN
+	1    7050 3275
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 5F30A255
+P 7050 3175
+F 0 "R6" V 6843 3175 50  0000 C CNN
+F 1 "1k" V 6934 3175 50  0000 C CNN
+F 2 "" V 6980 3175 50  0001 C CNN
+F 3 "~" H 7050 3175 50  0001 C CNN
+	1    7050 3175
+	0    1    1    0   
+$EndComp
+Text GLabel 6700 3275 0    50   Output ~ 0
+STM-SIM8xx_BridgeTX
+Text GLabel 6900 3175 0    50   Output ~ 0
+STM-SIM8xx_BridgeRX
+$Comp
+L RF_GSM:SIM800C U3
+U 1 1 5F268921
+P 8000 3575
+F 0 "U3" H 8175 2475 50  0000 C CNN
+F 1 "SIM800C" H 7725 2475 50  0000 C CNN
+F 2 "RF_GSM:SIMCom_SIM800C" H 8550 2525 50  0001 C CNN
+F 3 "http://simcom.ee/documents/SIM800C/SIM800C_Hardware_Design_V1.05.pdf" H 3350 1225 50  0001 C CNN
+	1    8000 3575
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

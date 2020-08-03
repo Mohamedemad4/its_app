@@ -12,7 +12,7 @@ from plyer import accelerometer
 
 
 uri="http://mohamedemad4.pythonanywhere.com"
-token="hello-world"
+token="car1"
 
 class acc_x_gps(BoxLayout):
     def __init__(self):
@@ -86,7 +86,7 @@ class acc_x_gps(BoxLayout):
             self.ids.gps_status.text = self.gps_status
 
             try:
-                url_req=urllib.request.Request(uri+"/data_dump/{token}/{x}/{y}/{z}/{lat}/{lon}/{speed}/{accuracy}".format(
+                url_req=urllib.request.Request(uri+"/data_dump/{token}/{x}/{y}/{z}/{lat}/{lon}/{speed}/{accuracy}/".format(
                         token=token,
                         x=x_acc,y=y_acc,z=z_acc,
                         lat=self.gps_location_dict["lat"],lon=self.gps_location_dict["lon"],
