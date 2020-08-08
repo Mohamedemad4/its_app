@@ -19,7 +19,7 @@ U 1 1 5F2608C9
 P 850 1475
 F 0 "J1" H 768 1050 50  0000 C CNN
 F 1 "Screw_Terminal_01x04" H 768 1141 50  0000 C CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x04_P1.27mm_Vertical" H 850 1475 50  0001 C CNN
+F 2 "its_app:5mm Pitch Screw Terminal 1x04" H 850 1475 50  0001 C CNN
 F 3 "~" H 850 1475 50  0001 C CNN
 	1    850  1475
 	-1   0    0    1   
@@ -46,301 +46,301 @@ CAN-HIGH
 $Comp
 L Device:CP1_Small polcap1
 U 1 1 5F26D3DB
-P 2500 1725
-F 0 "polcap1" H 2591 1771 50  0000 L CNN
-F 1 "470uF" H 2591 1680 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 2500 1725 50  0001 C CNN
-F 3 "~" H 2500 1725 50  0001 C CNN
-	1    2500 1725
+P 3525 1775
+F 0 "polcap1" H 3616 1821 50  0000 L CNN
+F 1 "470uF" H 3616 1730 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 3525 1775 50  0001 C CNN
+F 3 "~" H 3525 1775 50  0001 C CNN
+	1    3525 1775
 	1    0    0    -1  
 $EndComp
 $Comp
 L pspice:CAP C3
 U 1 1 5F26E0DF
-P 2925 1875
-F 0 "C3" H 3103 1921 50  0000 L CNN
-F 1 "100uF" H 3103 1830 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 2925 1875 50  0001 C CNN
-F 3 "~" H 2925 1875 50  0001 C CNN
-	1    2925 1875
+P 3950 1925
+F 0 "C3" H 4128 1971 50  0000 L CNN
+F 1 "100uF" H 4128 1880 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 3950 1925 50  0001 C CNN
+F 3 "~" H 3950 1925 50  0001 C CNN
+	1    3950 1925
 	1    0    0    -1  
 $EndComp
-Text GLabel 2425 1625 0    50   Input ~ 0
+Text GLabel 3450 1675 0    50   Input ~ 0
 12-40v
 Wire Wire Line
-	2425 1625 2500 1625
-Connection ~ 2500 1625
+	3450 1675 3525 1675
+Connection ~ 3525 1675
 Wire Wire Line
-	2500 1625 2925 1625
+	3525 1675 3950 1675
 Wire Wire Line
-	2925 1625 3400 1625
-Connection ~ 2925 1625
+	3950 1675 4425 1675
+Connection ~ 3950 1675
 Wire Wire Line
-	2500 2125 2500 1825
+	3525 2175 3525 1875
 Wire Wire Line
-	2925 2125 2500 2125
+	3950 2175 3525 2175
 $Comp
 L Diode:1N5820 D1
 U 1 1 5F272774
-P 4750 1850
-F 0 "D1" V 4704 1930 50  0000 L CNN
-F 1 "MBR360" V 4795 1930 50  0000 L CNN
-F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 4750 1675 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/MBR350-D.PDF" H 4750 1850 50  0001 C CNN
-	1    4750 1850
+P 5775 1900
+F 0 "D1" V 5729 1980 50  0000 L CNN
+F 1 "MBR360" V 5820 1980 50  0000 L CNN
+F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 5775 1725 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/MBR350-D.PDF" H 5775 1900 50  0001 C CNN
+	1    5775 1900
 	0    1    1    0   
 $EndComp
-Text GLabel 2300 2125 0    50   UnSpc ~ 0
+Text GLabel 3325 2175 0    50   UnSpc ~ 0
 GND
 Wire Wire Line
-	2500 2125 2300 2125
-Connection ~ 2500 2125
+	3525 2175 3325 2175
+Connection ~ 3525 2175
 Wire Wire Line
-	2925 2125 3575 2125
+	3950 2175 4600 2175
 Wire Wire Line
-	3575 2125 3575 2175
-Connection ~ 2925 2125
+	4600 2175 4600 2225
+Connection ~ 3950 2175
 Wire Wire Line
-	3850 2175 3850 2125
-Connection ~ 3850 2175
+	4875 2225 4875 2175
+Connection ~ 4875 2225
 Wire Wire Line
-	4150 2125 4150 2175
+	5175 2175 5175 2225
 $Comp
 L pspice:INDUCTOR L1
 U 1 1 5F27D228
-P 5000 1625
-F 0 "L1" H 5000 1850 50  0000 C CNN
-F 1 "68uH" H 5000 1775 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" H 5000 1625 50  0001 C CNN
-F 3 "~" H 5000 1625 50  0001 C CNN
-	1    5000 1625
+P 6025 1675
+F 0 "L1" H 6025 1900 50  0000 C CNN
+F 1 "68uH" H 6025 1825 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" H 6025 1675 50  0001 C CNN
+F 3 "~" H 6025 1675 50  0001 C CNN
+	1    6025 1675
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4150 2175 4350 2175
+	5175 2225 5375 2225
 Wire Wire Line
-	4350 2175 4350 2000
+	5375 2225 5375 2050
 Wire Wire Line
-	4350 2000 4750 2000
-Connection ~ 4150 2175
+	5375 2050 5775 2050
+Connection ~ 5175 2225
 Wire Wire Line
-	3575 2175 3700 2175
+	4600 2225 4725 2225
 $Comp
 L xl1509:XL1509 U1
 U 1 1 5F28150C
-P 3900 1725
-F 0 "U1" H 3900 2192 50  0000 C CNN
-F 1 "XL1509-ADJ" H 3900 2101 50  0000 C CNN
-F 2 "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm" V 4050 975 50  0001 C CNN
-F 3 "https://datasheet.lcsc.com/szlcsc/XLSEMI-XL1509-5-0E1_C61063.pdf" V 4050 975 50  0001 C CNN
-	1    3900 1725
+P 4925 1775
+F 0 "U1" H 4925 2242 50  0000 C CNN
+F 1 "XL1509-ADJ" H 4925 2151 50  0000 C CNN
+F 2 "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm" V 5075 1025 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/szlcsc/XLSEMI-XL1509-5-0E1_C61063.pdf" V 5075 1025 50  0001 C CNN
+	1    4925 1775
 	1    0    0    -1  
 $EndComp
-Connection ~ 3700 2175
+Connection ~ 4725 2225
 Wire Wire Line
-	3700 2175 3850 2175
+	4725 2225 4875 2225
 Wire Wire Line
-	4050 2175 4150 2175
+	5075 2225 5175 2225
 Wire Wire Line
-	4400 1625 4750 1625
+	5425 1675 5775 1675
 Wire Wire Line
-	4750 1700 4750 1625
-Connection ~ 5625 1625
+	5775 1750 5775 1675
+Connection ~ 6650 1675
 Wire Wire Line
-	5625 1825 5625 2000
+	6650 1875 6650 2050
 Wire Wire Line
-	5250 1625 5625 1625
-Connection ~ 4750 1625
-Connection ~ 4750 2000
+	6275 1675 6650 1675
+Connection ~ 5775 1675
+Connection ~ 5775 2050
 Wire Wire Line
-	5625 1525 5625 1625
-Text GLabel 6375 1625 2    50   Output ~ 0
+	6650 1575 6650 1675
+Text GLabel 7400 1675 2    50   Output ~ 0
 5v
 Wire Wire Line
-	3850 2175 3950 2175
-Connection ~ 4050 2175
-Connection ~ 3950 2175
+	4875 2225 4975 2225
+Connection ~ 5075 2225
+Connection ~ 4975 2225
 Wire Wire Line
-	3950 2175 4050 2175
+	4975 2225 5075 2225
 $Comp
 L Device:CP1_Small polcap2
 U 1 1 5F283170
-P 5625 1725
-F 0 "polcap2" H 5850 1600 50  0000 L CNN
-F 1 "270uF/10v" H 5716 1680 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5625 1725 50  0001 C CNN
-F 3 "~" H 5625 1725 50  0001 C CNN
-	1    5625 1725
+P 6650 1775
+F 0 "polcap2" H 6875 1650 50  0000 L CNN
+F 1 "270uF/10v" H 6741 1730 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 6650 1775 50  0001 C CNN
+F 3 "~" H 6650 1775 50  0001 C CNN
+	1    6650 1775
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:CP1_Small polcap3
 U 1 1 5F2E20E3
-P 7025 1600
-F 0 "polcap3" H 7116 1646 50  0000 L CNN
-F 1 "470uF" H 7116 1555 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 7025 1600 50  0001 C CNN
-F 3 "~" H 7025 1600 50  0001 C CNN
-	1    7025 1600
+P 8875 1700
+F 0 "polcap3" H 8966 1746 50  0000 L CNN
+F 1 "470uF" H 8966 1655 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 8875 1700 50  0001 C CNN
+F 3 "~" H 8875 1700 50  0001 C CNN
+	1    8875 1700
 	1    0    0    -1  
 $EndComp
 $Comp
 L pspice:CAP C4
 U 1 1 5F2E20E9
-P 7450 1750
-F 0 "C4" H 7628 1796 50  0000 L CNN
-F 1 "100uF" H 7628 1705 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 7450 1750 50  0001 C CNN
-F 3 "~" H 7450 1750 50  0001 C CNN
-	1    7450 1750
+P 9300 1850
+F 0 "C4" H 9478 1896 50  0000 L CNN
+F 1 "100uF" H 9478 1805 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 9300 1850 50  0001 C CNN
+F 3 "~" H 9300 1850 50  0001 C CNN
+	1    9300 1850
 	1    0    0    -1  
 $EndComp
-Text GLabel 6950 1500 0    50   Input ~ 0
+Text GLabel 8800 1600 0    50   Input ~ 0
 12-40v
 Wire Wire Line
-	6950 1500 7025 1500
-Connection ~ 7025 1500
+	8800 1600 8875 1600
+Connection ~ 8875 1600
 Wire Wire Line
-	7025 1500 7450 1500
+	8875 1600 9300 1600
 Wire Wire Line
-	7450 1500 7925 1500
-Connection ~ 7450 1500
+	9300 1600 9775 1600
+Connection ~ 9300 1600
 Wire Wire Line
-	7025 2000 7025 1700
+	8875 2100 8875 1800
 Wire Wire Line
-	7450 2000 7025 2000
+	9300 2100 8875 2100
 $Comp
 L Diode:1N5820 D2
 U 1 1 5F2E20F7
-P 9275 1725
-F 0 "D2" V 9229 1805 50  0000 L CNN
-F 1 "MBR360" V 9320 1805 50  0000 L CNN
-F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 9275 1550 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/MBR350-D.PDF" H 9275 1725 50  0001 C CNN
-	1    9275 1725
+P 11125 1825
+F 0 "D2" V 11079 1905 50  0000 L CNN
+F 1 "MBR360" V 11170 1905 50  0000 L CNN
+F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 11125 1650 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/MBR350-D.PDF" H 11125 1825 50  0001 C CNN
+	1    11125 1825
 	0    1    1    0   
 $EndComp
-Text GLabel 6825 2000 0    50   UnSpc ~ 0
+Text GLabel 8675 2100 0    50   UnSpc ~ 0
 GND
 Wire Wire Line
-	7025 2000 6825 2000
-Connection ~ 7025 2000
+	8875 2100 8675 2100
+Connection ~ 8875 2100
 Wire Wire Line
-	7450 2000 8100 2000
+	9300 2100 9950 2100
 Wire Wire Line
-	8100 2000 8100 2050
-Connection ~ 7450 2000
+	9950 2100 9950 2150
+Connection ~ 9300 2100
 Wire Wire Line
-	8375 2050 8375 2000
-Connection ~ 8375 2050
+	10225 2150 10225 2100
+Connection ~ 10225 2150
 Wire Wire Line
-	8675 2000 8675 2050
+	10525 2100 10525 2150
 $Comp
 L pspice:INDUCTOR L2
 U 1 1 5F2E2106
-P 9525 1500
-F 0 "L2" H 9525 1725 50  0000 C CNN
-F 1 "68uH" H 9525 1650 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" H 9525 1500 50  0001 C CNN
-F 3 "~" H 9525 1500 50  0001 C CNN
-	1    9525 1500
+P 11375 1600
+F 0 "L2" H 11375 1825 50  0000 C CNN
+F 1 "68uH" H 11375 1750 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" H 11375 1600 50  0001 C CNN
+F 3 "~" H 11375 1600 50  0001 C CNN
+	1    11375 1600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8675 2050 8875 2050
+	10525 2150 10725 2150
 Wire Wire Line
-	8875 2050 8875 1875
+	10725 2150 10725 1975
 Wire Wire Line
-	8875 1875 9275 1875
-Connection ~ 8675 2050
+	10725 1975 11125 1975
+Connection ~ 10525 2150
 Wire Wire Line
-	8925 1500 9275 1500
+	10775 1600 11125 1600
 Wire Wire Line
-	9275 1575 9275 1500
-Connection ~ 10150 1500
+	11125 1675 11125 1600
+Connection ~ 12000 1600
 Wire Wire Line
-	10150 1700 10150 1875
-Connection ~ 10150 1875
+	12000 1800 12000 1975
+Connection ~ 12000 1975
 Wire Wire Line
-	10150 1875 10450 1875
+	12000 1975 12300 1975
 Wire Wire Line
-	9775 1500 10150 1500
-Connection ~ 9275 1500
+	11625 1600 12000 1600
+Connection ~ 11125 1600
 Wire Wire Line
-	9275 1875 10150 1875
-Connection ~ 9275 1875
+	11125 1975 12000 1975
+Connection ~ 11125 1975
 Wire Wire Line
-	10150 1400 10150 1500
-Text GLabel 10450 1875 2    50   UnSpc ~ 0
+	12000 1500 12000 1600
+Text GLabel 12300 1975 2    50   UnSpc ~ 0
 GND
 $Comp
 L Device:CP1_Small polcap4
 U 1 1 5F2E212D
-P 10150 1600
-F 0 "polcap4" H 10241 1646 50  0000 L CNN
-F 1 "390uF/6.3v" H 10241 1555 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 10150 1600 50  0001 C CNN
-F 3 "~" H 10150 1600 50  0001 C CNN
-	1    10150 1600
+P 12000 1700
+F 0 "polcap4" H 12091 1746 50  0000 L CNN
+F 1 "390uF/6.3v" H 12091 1655 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 12000 1700 50  0001 C CNN
+F 3 "~" H 12000 1700 50  0001 C CNN
+	1    12000 1700
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R4
 U 1 1 5F2E5CA7
-P 10150 1250
-F 0 "R4" H 10220 1296 50  0000 L CNN
-F 1 "2.3k" H 10220 1205 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 10080 1250 50  0001 C CNN
-F 3 "~" H 10150 1250 50  0001 C CNN
-	1    10150 1250
+P 12000 1350
+F 0 "R4" H 12070 1396 50  0000 L CNN
+F 1 "2.3k" H 12070 1305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 11930 1350 50  0001 C CNN
+F 3 "~" H 12000 1350 50  0001 C CNN
+	1    12000 1350
 	-1   0    0    -1  
 $EndComp
 $Comp
 L Device:R R2
 U 1 1 5F2E5E3E
-P 10150 950
-F 0 "R2" H 10220 996 50  0000 L CNN
-F 1 "1k" H 10220 905 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 10080 950 50  0001 C CNN
-F 3 "~" H 10150 950 50  0001 C CNN
-	1    10150 950 
+P 12000 1050
+F 0 "R2" H 12070 1096 50  0000 L CNN
+F 1 "1k" H 12070 1005 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 11930 1050 50  0001 C CNN
+F 3 "~" H 12000 1050 50  0001 C CNN
+	1    12000 1050
 	1    0    0    -1  
 $EndComp
-Text GLabel 10150 800  1    50   Input ~ 0
+Text GLabel 12000 900  1    50   Input ~ 0
 GND
 $Comp
 L Device:C C2
 U 1 1 5F2FA770
-P 10300 1250
-F 0 "C2" H 10415 1296 50  0000 L CNN
-F 1 "3.3n" H 10415 1205 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 10338 1100 50  0001 C CNN
-F 3 "~" H 10300 1250 50  0001 C CNN
-	1    10300 1250
+P 12150 1350
+F 0 "C2" H 12265 1396 50  0000 L CNN
+F 1 "3.3n" H 12265 1305 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 12188 1200 50  0001 C CNN
+F 3 "~" H 12150 1350 50  0001 C CNN
+	1    12150 1350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8925 1400 9850 1400
+	10775 1500 11700 1500
 Wire Wire Line
-	9850 1400 9850 1100
+	11700 1500 11700 1200
 Wire Wire Line
-	9850 1100 10150 1100
-Connection ~ 10150 1100
+	11700 1200 12000 1200
+Connection ~ 12000 1200
 Wire Wire Line
-	10150 1100 10300 1100
+	12000 1200 12150 1200
 Wire Wire Line
-	10300 1400 10300 1500
+	12150 1500 12150 1600
 Wire Wire Line
-	10150 1500 10300 1500
-Connection ~ 10300 1500
+	12000 1600 12150 1600
+Connection ~ 12150 1600
 Wire Wire Line
-	10300 1500 10525 1500
-Text GLabel 10525 1500 2    50   Output ~ 0
+	12150 1600 12375 1600
+Text GLabel 12375 1600 2    50   Output ~ 0
 4v
-Text GLabel 6375 2000 2    50   UnSpc ~ 0
+Text GLabel 7400 2050 2    50   UnSpc ~ 0
 GND
 Wire Wire Line
-	4750 2000 5625 2000
+	5775 2050 6650 2050
 $Comp
 L Device:LED D3
 U 1 1 5F441DF2
@@ -425,52 +425,52 @@ $EndComp
 $Comp
 L Device:R R3
 U 1 1 5F52D8A2
-P 5625 1375
-F 0 "R3" H 5695 1421 50  0000 L CNN
-F 1 "320" H 5695 1330 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 5555 1375 50  0001 C CNN
-F 3 "~" H 5625 1375 50  0001 C CNN
-	1    5625 1375
+P 6650 1425
+F 0 "R3" H 6720 1471 50  0000 L CNN
+F 1 "320" H 6720 1380 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6580 1425 50  0001 C CNN
+F 3 "~" H 6650 1425 50  0001 C CNN
+	1    6650 1425
 	-1   0    0    -1  
 $EndComp
 $Comp
 L Device:R R1
 U 1 1 5F52D8A8
-P 5625 1075
-F 0 "R1" H 5695 1121 50  0000 L CNN
-F 1 "1k" H 5695 1030 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 5555 1075 50  0001 C CNN
-F 3 "~" H 5625 1075 50  0001 C CNN
-	1    5625 1075
+P 6650 1125
+F 0 "R1" H 6720 1171 50  0000 L CNN
+F 1 "1k" H 6720 1080 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6580 1125 50  0001 C CNN
+F 3 "~" H 6650 1125 50  0001 C CNN
+	1    6650 1125
 	1    0    0    -1  
 $EndComp
-Text GLabel 5625 925  1    50   Input ~ 0
+Text GLabel 6650 975  1    50   Input ~ 0
 GND
 $Comp
 L Device:C C1
 U 1 1 5F52D8AF
-P 5775 1375
-F 0 "C1" H 5890 1421 50  0000 L CNN
-F 1 "3.3n" H 5890 1330 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 5813 1225 50  0001 C CNN
-F 3 "~" H 5775 1375 50  0001 C CNN
-	1    5775 1375
+P 6800 1425
+F 0 "C1" H 6915 1471 50  0000 L CNN
+F 1 "3.3n" H 6915 1380 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 6838 1275 50  0001 C CNN
+F 3 "~" H 6800 1425 50  0001 C CNN
+	1    6800 1425
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4400 1525 5325 1525
+	5425 1575 6350 1575
 Wire Wire Line
-	5325 1525 5325 1225
+	6350 1575 6350 1275
 Wire Wire Line
-	5325 1225 5625 1225
-Connection ~ 5625 1225
+	6350 1275 6650 1275
+Connection ~ 6650 1275
 Wire Wire Line
-	5625 1225 5775 1225
+	6650 1275 6800 1275
 Wire Wire Line
-	5775 1525 5775 1625
+	6800 1575 6800 1675
 Wire Wire Line
-	5775 1625 5625 1625
-Connection ~ 5625 2000
+	6800 1675 6650 1675
+Connection ~ 6650 2050
 Text GLabel 2525 5750 3    50   UnSpc ~ 0
 GND
 Wire Wire Line
@@ -600,7 +600,7 @@ L Device:C C11
 U 1 1 5F5351A3
 P 4050 4650
 F 0 "C11" H 3750 4600 50  0000 L CNN
-F 1 "5nF" H 3750 4700 50  0000 L CNN
+F 1 "7.5nF" H 3750 4700 50  0000 L CNN
 F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 4088 4500 50  0001 C CNN
 F 3 "~" H 4050 4650 50  0001 C CNN
 	1    4050 4650
@@ -613,7 +613,7 @@ L Device:C C5
 U 1 1 5F535FAB
 P 2375 3850
 F 0 "C5" H 2100 3825 50  0000 L CNN
-F 1 "5nF" H 2075 3925 50  0000 L CNN
+F 1 "7.5nF" H 2075 3925 50  0000 L CNN
 F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 2413 3700 50  0001 C CNN
 F 3 "~" H 2375 3850 50  0001 C CNN
 	1    2375 3850
@@ -630,34 +630,34 @@ GND
 $Comp
 L Connector:Conn_01x02_Male J6
 U 1 1 5F2F1289
-P 6225 1425
-F 0 "J6" V 6287 1469 50  0001 L CNN
-F 1 "Conn_01x02_Male" V 6378 1469 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 6225 1425 50  0001 C CNN
-F 3 "~" H 6225 1425 50  0001 C CNN
-	1    6225 1425
+P 7250 1475
+F 0 "J6" V 7312 1519 50  0001 L CNN
+F 1 "Conn_01x02_Male" V 7403 1519 50  0001 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 7250 1475 50  0001 C CNN
+F 3 "~" H 7250 1475 50  0001 C CNN
+	1    7250 1475
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6225 1625 6375 1625
+	7250 1675 7400 1675
 Wire Wire Line
-	6125 1625 5775 1625
-Connection ~ 5775 1625
+	7150 1675 6800 1675
+Connection ~ 6800 1675
 $Comp
 L Connector:Conn_01x02_Male J7
 U 1 1 5F3010C0
-P 6225 1800
-F 0 "J7" V 6287 1844 50  0001 L CNN
-F 1 "Conn_01x02_Male" V 6378 1844 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 6225 1800 50  0001 C CNN
-F 3 "~" H 6225 1800 50  0001 C CNN
-	1    6225 1800
+P 7250 1850
+F 0 "J7" V 7312 1894 50  0001 L CNN
+F 1 "Conn_01x02_Male" V 7403 1894 50  0001 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 7250 1850 50  0001 C CNN
+F 3 "~" H 7250 1850 50  0001 C CNN
+	1    7250 1850
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6225 2000 6375 2000
+	7250 2050 7400 2050
 Wire Wire Line
-	5625 2000 6125 2000
+	6650 2050 7150 2050
 $Comp
 L Connector:Conn_01x02_Male J8
 U 1 1 5F31A9DF
@@ -721,416 +721,538 @@ Wire Wire Line
 $Comp
 L xl1509:XL1509 U10
 U 1 1 5F57E02E
-P 8425 1600
-F 0 "U10" H 8425 2067 50  0000 C CNN
-F 1 "XL1509-ADJ" H 8425 1976 50  0000 C CNN
-F 2 "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm" V 8575 850 50  0001 C CNN
-F 3 "https://datasheet.lcsc.com/szlcsc/XLSEMI-XL1509-5-0E1_C61063.pdf" V 8575 850 50  0001 C CNN
-	1    8425 1600
+P 10275 1700
+F 0 "U10" H 10275 2167 50  0000 C CNN
+F 1 "XL1509-ADJ" H 10275 2076 50  0000 C CNN
+F 2 "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm" V 10425 950 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/szlcsc/XLSEMI-XL1509-5-0E1_C61063.pdf" V 10425 950 50  0001 C CNN
+	1    10275 1700
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8375 2050 8475 2050
+	10225 2150 10325 2150
 Wire Wire Line
-	8575 2050 8675 2050
+	10425 2150 10525 2150
 Wire Wire Line
-	8100 2050 8225 2050
-Connection ~ 8225 2050
+	9950 2150 10075 2150
+Connection ~ 10075 2150
 Wire Wire Line
-	8225 2050 8375 2050
+	10075 2150 10225 2150
 Wire Wire Line
-	8475 2050 8575 2050
-Connection ~ 8475 2050
-Connection ~ 8575 2050
-Text GLabel 6550 3025 0    50   Input ~ 0
-STM-SIM8xx_BridgeTX
-Wire Wire Line
-	7175 3125 7700 3125
-Text GLabel 6650 2725 1    50   UnSpc ~ 0
-GND
-Wire Wire Line
-	6650 3025 6875 3025
-Connection ~ 6650 3025
-Wire Wire Line
-	6550 3025 6650 3025
-$Comp
-L Device:R R8
-U 1 1 5F2B40A9
-P 6650 2875
-F 0 "R8" H 6720 2921 50  0000 L CNN
-F 1 "5.6k" H 6720 2830 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6580 2875 50  0001 C CNN
-F 3 "~" H 6650 2875 50  0001 C CNN
-	1    6650 2875
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7700 3025 7175 3025
-$Comp
-L Device:R R9
-U 1 1 5F2A2985
-P 7025 3025
-F 0 "R9" V 6818 3025 50  0000 C CNN
-F 1 "1k" V 6909 3025 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6955 3025 50  0001 C CNN
-F 3 "~" H 7025 3025 50  0001 C CNN
-	1    7025 3025
-	0    1    1    0   
-$EndComp
-Text GLabel 7175 3125 0    50   Output ~ 0
-STM-SIM8xx_BridgeRX
-Text GLabel 7700 2925 0    50   Input ~ 0
-RESET_PIN
-Text GLabel 7700 2825 0    50   Input ~ 0
-4v
-Text GLabel 7700 3225 0    50   UnSpc ~ 0
-GND
-$Comp
-L Connector:Conn_01x02_Male J13
-U 1 1 5F2CC3E4
-P 8750 5225
-F 0 "J13" V 8812 5269 50  0001 L CNN
-F 1 "Conn_01x02_Male" V 8903 5269 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 8750 5225 50  0001 C CNN
-F 3 "~" H 8750 5225 50  0001 C CNN
-	1    8750 5225
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	8200 5425 8650 5425
-Wire Wire Line
-	8975 5425 8750 5425
-Wire Wire Line
-	8175 5325 8650 5325
-Wire Wire Line
-	8975 5325 8750 5325
-$Comp
-L Connector:Conn_01x02_Male J12
-U 1 1 5F2BDFEB
-P 8750 5125
-F 0 "J12" V 8812 5169 50  0001 L CNN
-F 1 "Conn_01x02_Male" V 8903 5169 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 8750 5125 50  0001 C CNN
-F 3 "~" H 8750 5125 50  0001 C CNN
-	1    8750 5125
-	0    1    1    0   
-$EndComp
-Text GLabel 5350 3900 0    50   Input ~ 0
-5v
-Text GLabel 8150 5225 2    50   Output ~ 0
-SPI_MOSI
-Text GLabel 8150 5125 2    50   Output ~ 0
-SPI_MISO
-Text GLabel 8150 5025 2    50   Output ~ 0
-SPI_CSK
-Text GLabel 8150 4925 2    50   Output ~ 0
-SPI_NSS
-Text GLabel 8150 4625 2    50   Output ~ 0
-NETWORK_ERROR
-Text GLabel 8150 4725 2    50   Output ~ 0
-SIM_CARD_ERROR
-$Comp
-L Device:R R12
-U 1 1 5F4C561A
-P 9650 4675
-F 0 "R12" H 9450 4600 50  0000 L CNN
-F 1 "100k" H 9450 4475 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 9580 4675 50  0001 C CNN
-F 3 "~" H 9650 4675 50  0001 C CNN
-	1    9650 4675
-	1    0    0    -1  
-$EndComp
-Text GLabel 7150 5625 0    50   Output ~ 0
-200OK
-Wire Wire Line
-	8150 4525 9650 4525
-Text GLabel 5425 4200 0    50   UnSpc ~ 0
-GND
-Text GLabel 4700 5450 2    50   BiDi ~ 0
-CAN-LOW
-Text GLabel 4700 5250 2    50   BiDi ~ 0
-CAN-HIGH
-Connection ~ 9650 4525
-Text GLabel 9875 4175 1    50   Input ~ 0
-12-40v
-Connection ~ 9875 4525
-Wire Wire Line
-	9875 4475 9875 4525
-Wire Wire Line
-	9650 4525 9875 4525
-Text GLabel 9875 4825 3    50   UnSpc ~ 0
-GND
-Wire Wire Line
-	9650 4825 9875 4825
-$Comp
-L Device:R R13
-U 1 1 5F4C1E81
-P 9875 4675
-F 0 "R13" H 9945 4721 50  0000 L CNN
-F 1 "22k" H 9945 4630 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 9805 4675 50  0001 C CNN
-F 3 "~" H 9875 4675 50  0001 C CNN
-	1    9875 4675
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R10
-U 1 1 5F4C15F0
-P 9875 4325
-F 0 "R10" H 9945 4371 50  0000 L CNN
-F 1 "270k" H 9945 4280 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 9805 4325 50  0001 C CNN
-F 3 "~" H 9875 4325 50  0001 C CNN
-	1    9875 4325
-	1    0    0    -1  
-$EndComp
-Text GLabel 8975 5325 2    50   Output ~ 0
-STM-SIM8xx_BridgeTX
-Text GLabel 8150 4825 2    50   Output ~ 0
-RESET_PIN
-Connection ~ 5650 4200
-Wire Wire Line
-	5425 4200 5650 4200
-Connection ~ 7650 4200
-Wire Wire Line
-	7650 4200 7650 4325
-Connection ~ 5975 3900
-Wire Wire Line
-	5950 3900 5975 3900
-Wire Wire Line
-	6900 4200 7325 4200
-Wire Wire Line
-	6425 4200 6900 4200
-Wire Wire Line
-	7325 4200 7650 4200
-Connection ~ 7325 4200
-Connection ~ 6900 4200
-Connection ~ 6425 4200
-Wire Wire Line
-	5975 4200 6425 4200
-Connection ~ 5975 4200
-Wire Wire Line
-	5650 4200 5975 4200
-$Comp
-L Regulator_Linear:AMS1117-3.3 U2
-U 1 1 5F3C655D
-P 5650 3900
-F 0 "U2" H 5650 4142 50  0000 C CNN
-F 1 "AMS1117-3.3" H 5650 4051 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 5650 4100 50  0001 C CNN
-F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 5750 3650 50  0001 C CNN
-	1    5650 3900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9000 6100 9075 6100
-Wire Wire Line
-	9000 5625 9000 6100
-Wire Wire Line
-	8150 5525 9075 5525
-Wire Wire Line
-	9075 5525 9075 6000
-$Comp
-L Connector:Conn_01x02_Male J5
-U 1 1 5F2DFC4D
-P 9275 6100
-F 0 "J5" H 9383 6281 50  0000 C CNN
-F 1 "SWD Debugging Interface" H 9383 6190 50  0000 C CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 9275 6100 50  0001 C CNN
-F 3 "~" H 9275 6100 50  0001 C CNN
-	1    9275 6100
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	8200 6175 6700 6175
-Connection ~ 8200 5425
-Wire Wire Line
-	8200 5425 8200 6175
-Connection ~ 8175 5325
-Wire Wire Line
-	8175 5325 8175 6100
-Wire Wire Line
-	6600 6100 8175 6100
-Wire Wire Line
-	8150 5325 8175 5325
-Wire Wire Line
-	8150 5425 8200 5425
-Text GLabel 8975 5425 2    50   Input ~ 0
-STM-SIM8xx_BridgeRX
-Wire Wire Line
-	7325 3900 7650 3900
-$Comp
-L Device:C C10
-U 1 1 5F2F40E3
-P 7650 4050
-F 0 "C10" H 7765 4096 50  0000 L CNN
-F 1 "10uF" H 7765 4005 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7688 3900 50  0001 C CNN
-F 3 "~" H 7650 4050 50  0001 C CNN
-	1    7650 4050
-	1    0    0    1   
-$EndComp
-Connection ~ 7325 3900
-$Comp
-L Device:C C9
-U 1 1 5F2F3561
-P 7325 4050
-F 0 "C9" H 7440 4096 50  0000 L CNN
-F 1 "1uF" H 7440 4005 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7363 3900 50  0001 C CNN
-F 3 "~" H 7325 4050 50  0001 C CNN
-	1    7325 4050
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	6900 3900 7325 3900
-Wire Wire Line
-	8150 5625 9000 5625
-Wire Wire Line
-	6700 5100 6500 5100
-Wire Wire Line
-	6700 6175 6700 5100
-Wire Wire Line
-	6600 5200 6500 5200
-Wire Wire Line
-	6600 6100 6600 5200
-Wire Wire Line
-	6850 5000 6850 5825
-Connection ~ 6850 5000
-Wire Wire Line
-	6850 4725 6850 5000
-Wire Wire Line
-	6850 5000 6500 5000
-Connection ~ 6850 5825
-Wire Wire Line
-	6500 5825 6500 5300
-Wire Wire Line
-	6850 5825 6500 5825
-Wire Wire Line
-	6700 4900 6500 4900
-Wire Wire Line
-	6700 4525 6700 4900
-$Comp
-L Connector:Conn_01x05_Male J4
-U 1 1 5F2D262B
-P 6300 5100
-F 0 "J4" H 6408 5481 50  0000 C CNN
-F 1 "Programming interface" H 6408 5390 50  0000 C CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x05_P1.00mm_Vertical" H 6300 5100 50  0001 C CNN
-F 3 "~" H 6300 5100 50  0001 C CNN
-	1    6300 5100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6850 5825 7650 5825
-Wire Wire Line
-	6850 4525 6700 4525
-Connection ~ 6850 4525
-$Comp
-L Device:R R14
-U 1 1 5F2C9BE9
-P 7000 4725
-F 0 "R14" V 6793 4725 50  0000 C CNN
-F 1 "6.8k" V 6884 4725 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6930 4725 50  0001 C CNN
-F 3 "~" H 7000 4725 50  0001 C CNN
-	1    7000 4725
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7650 4375 7650 4325
-Wire Wire Line
-	6850 4375 7650 4375
-Wire Wire Line
-	6850 4525 6850 4375
-$Comp
-L Device:R R11
-U 1 1 5F2C4135
-P 7000 4525
-F 0 "R11" V 6793 4525 50  0000 C CNN
-F 1 "6.8k" V 6884 4525 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6930 4525 50  0001 C CNN
-F 3 "~" H 7000 4525 50  0001 C CNN
-	1    7000 4525
-	0    1    1    0   
-$EndComp
-Text GLabel 7650 5825 2    50   UnSpc ~ 0
-GND
-Wire Wire Line
-	7650 4325 7750 4325
-Connection ~ 7650 4325
-Wire Wire Line
-	6425 3900 6900 3900
-Connection ~ 6425 3900
-$Comp
-L MCU_ST_STM32F0:STM32F030F4Px U4
-U 1 1 5F25C437
-P 7650 5025
-F 0 "U4" H 7650 4136 50  0000 C CNN
-F 1 "STM32F030F4Px" H 7650 4045 50  0000 C CNN
-F 2 "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm" H 7250 4325 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00088500.pdf" H 7650 5025 50  0001 C CNN
-	1    7650 5025
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7625 4325 7650 4325
-$Comp
-L Device:C C6
-U 1 1 5F2AF9BD
-P 5975 4050
-F 0 "C6" H 6090 4096 50  0000 L CNN
-F 1 "100nF" H 6090 4005 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 6013 3900 50  0001 C CNN
-F 3 "~" H 5975 4050 50  0001 C CNN
-	1    5975 4050
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:C C7
-U 1 1 5F2B13E0
-P 6425 4050
-F 0 "C7" H 6540 4096 50  0000 L CNN
-F 1 "100nF" H 6540 4005 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 6463 3900 50  0001 C CNN
-F 3 "~" H 6425 4050 50  0001 C CNN
-	1    6425 4050
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	5975 3900 6425 3900
-Connection ~ 6900 3900
+	10325 2150 10425 2150
+Connection ~ 10325 2150
+Connection ~ 10425 2150
 $Comp
 L Device:C C8
 U 1 1 5F2AE9C9
-P 6900 4050
-F 0 "C8" H 7015 4096 50  0000 L CNN
-F 1 "4.7uF" H 7015 4005 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 6938 3900 50  0001 C CNN
-F 3 "~" H 6900 4050 50  0001 C CNN
-	1    6900 4050
+P 10400 4075
+F 0 "C8" H 10515 4121 50  0000 L CNN
+F 1 "4.7uF" H 10515 4030 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 10438 3925 50  0001 C CNN
+F 3 "~" H 10400 4075 50  0001 C CNN
+	1    10400 4075
+	1    0    0    1   
+$EndComp
+Connection ~ 10400 3925
+Wire Wire Line
+	9475 3925 9925 3925
+$Comp
+L Device:C C7
+U 1 1 5F2B13E0
+P 9925 4075
+F 0 "C7" H 10040 4121 50  0000 L CNN
+F 1 "100nF" H 10040 4030 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 9963 3925 50  0001 C CNN
+F 3 "~" H 9925 4075 50  0001 C CNN
+	1    9925 4075
 	1    0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x06_Female J2
-U 1 1 5F296694
-P 7900 2925
-F 0 "J2" H 7928 2901 50  0000 L CNN
-F 1 "SIM800C Module" H 8050 2500 50  0000 L CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x06_P1.27mm_Vertical" H 7900 2925 50  0001 C CNN
-F 3 "~" H 7900 2925 50  0001 C CNN
-	1    7900 2925
+L Device:C C6
+U 1 1 5F2AF9BD
+P 9475 4075
+F 0 "C6" H 9590 4121 50  0000 L CNN
+F 1 "100nF" H 9590 4030 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 9513 3925 50  0001 C CNN
+F 3 "~" H 9475 4075 50  0001 C CNN
+	1    9475 4075
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	11125 4350 11150 4350
+$Comp
+L MCU_ST_STM32F0:STM32F030F4Px U4
+U 1 1 5F25C437
+P 11150 5050
+F 0 "U4" H 11150 4161 50  0000 C CNN
+F 1 "STM32F030F4Px" H 11150 4070 50  0000 C CNN
+F 2 "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm" H 10750 4350 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00088500.pdf" H 11150 5050 50  0001 C CNN
+	1    11150 5050
+	1    0    0    -1  
+$EndComp
+Connection ~ 9925 3925
+Wire Wire Line
+	9925 3925 10400 3925
+Connection ~ 11150 4350
+Wire Wire Line
+	11150 4350 11250 4350
+Text GLabel 11150 5850 2    50   UnSpc ~ 0
+GND
+$Comp
+L Device:R R11
+U 1 1 5F2C4135
+P 10500 4550
+F 0 "R11" V 10293 4550 50  0000 C CNN
+F 1 "6.8k" V 10384 4550 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 10430 4550 50  0001 C CNN
+F 3 "~" H 10500 4550 50  0001 C CNN
+	1    10500 4550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10350 4550 10350 4400
+Wire Wire Line
+	10350 4400 11150 4400
+Wire Wire Line
+	11150 4400 11150 4350
+$Comp
+L Device:R R14
+U 1 1 5F2C9BE9
+P 10500 4750
+F 0 "R14" V 10293 4750 50  0000 C CNN
+F 1 "6.8k" V 10384 4750 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 10430 4750 50  0001 C CNN
+F 3 "~" H 10500 4750 50  0001 C CNN
+	1    10500 4750
+	0    1    1    0   
+$EndComp
+Connection ~ 10350 4550
+Wire Wire Line
+	10350 4550 10200 4550
+Wire Wire Line
+	10350 5850 11150 5850
+$Comp
+L Connector:Conn_01x05_Male J4
+U 1 1 5F2D262B
+P 9800 5125
+F 0 "J4" H 9908 5506 50  0000 C CNN
+F 1 "Programming interface" H 9908 5415 50  0000 C CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x05_P1.00mm_Vertical" H 9800 5125 50  0001 C CNN
+F 3 "~" H 9800 5125 50  0001 C CNN
+	1    9800 5125
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10200 4550 10200 4925
+Wire Wire Line
+	10200 4925 10000 4925
+Wire Wire Line
+	10350 5850 10000 5850
+Wire Wire Line
+	10000 5850 10000 5325
+Connection ~ 10350 5850
+Wire Wire Line
+	10350 5025 10000 5025
+Wire Wire Line
+	10350 4750 10350 5025
+Connection ~ 10350 5025
+Wire Wire Line
+	10350 5025 10350 5850
+Wire Wire Line
+	10100 6125 10100 5225
+Wire Wire Line
+	10100 5225 10000 5225
+Wire Wire Line
+	10200 6200 10200 5125
+Wire Wire Line
+	10200 5125 10000 5125
+Wire Wire Line
+	11650 5650 12500 5650
+Wire Wire Line
+	10400 3925 10825 3925
+$Comp
+L Device:C C9
+U 1 1 5F2F3561
+P 10825 4075
+F 0 "C9" H 10940 4121 50  0000 L CNN
+F 1 "1uF" H 10940 4030 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 10863 3925 50  0001 C CNN
+F 3 "~" H 10825 4075 50  0001 C CNN
+	1    10825 4075
+	1    0    0    1   
+$EndComp
+Connection ~ 10825 3925
+$Comp
+L Device:C C10
+U 1 1 5F2F40E3
+P 11150 4075
+F 0 "C10" H 11265 4121 50  0000 L CNN
+F 1 "10uF" H 11265 4030 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 11188 3925 50  0001 C CNN
+F 3 "~" H 11150 4075 50  0001 C CNN
+	1    11150 4075
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	10825 3925 11150 3925
+Text GLabel 12475 5450 2    50   Input ~ 0
+STM-SIM8xx_BridgeRX
+Wire Wire Line
+	11650 5450 11700 5450
+Wire Wire Line
+	11650 5350 11675 5350
+Wire Wire Line
+	10100 6125 11675 6125
+Wire Wire Line
+	11675 5350 11675 6125
+Connection ~ 11675 5350
+Wire Wire Line
+	11700 5450 11700 6200
+Connection ~ 11700 5450
+Wire Wire Line
+	11700 6200 10200 6200
+$Comp
+L Connector:Conn_01x02_Male J5
+U 1 1 5F2DFC4D
+P 12775 6125
+F 0 "J5" H 12883 6306 50  0000 C CNN
+F 1 "SWD Debugging Interface" H 12883 6215 50  0000 C CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 12775 6125 50  0001 C CNN
+F 3 "~" H 12775 6125 50  0001 C CNN
+	1    12775 6125
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	12575 5550 12575 6025
+Wire Wire Line
+	11650 5550 12575 5550
+Wire Wire Line
+	12500 5650 12500 6125
+Wire Wire Line
+	12500 6125 12575 6125
+$Comp
+L Regulator_Linear:AMS1117-3.3 U2
+U 1 1 5F3C655D
+P 9150 3925
+F 0 "U2" H 9150 4167 50  0000 C CNN
+F 1 "AMS1117-3.3" H 9150 4076 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 9150 4125 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 9250 3675 50  0001 C CNN
+	1    9150 3925
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9150 4225 9475 4225
+Connection ~ 9475 4225
+Wire Wire Line
+	9475 4225 9925 4225
+Connection ~ 9925 4225
+Connection ~ 10400 4225
+Connection ~ 10825 4225
+Wire Wire Line
+	10825 4225 11150 4225
+Wire Wire Line
+	9925 4225 10400 4225
+Wire Wire Line
+	10400 4225 10825 4225
+Wire Wire Line
+	9450 3925 9475 3925
+Connection ~ 9475 3925
+Wire Wire Line
+	11150 4225 11150 4350
+Connection ~ 11150 4225
+Wire Wire Line
+	8925 4225 9150 4225
+Connection ~ 9150 4225
+Text GLabel 11650 4850 2    50   Output ~ 0
+SIM8xx_PWR_PIN
+Text GLabel 12475 5350 2    50   Output ~ 0
+STM-SIM8xx_BridgeTX
+$Comp
+L Device:R R10
+U 1 1 5F4C15F0
+P 13375 4350
+F 0 "R10" H 13445 4396 50  0000 L CNN
+F 1 "270k" H 13445 4305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 13305 4350 50  0001 C CNN
+F 3 "~" H 13375 4350 50  0001 C CNN
+	1    13375 4350
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x06_Female J3
-U 1 1 5F29668E
-P 8950 2925
-F 0 "J3" H 8978 2901 50  0000 L CNN
-F 1 "SIM800C Module Side A" H 8978 2810 50  0001 L CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x06_P1.27mm_Vertical" H 8950 2925 50  0001 C CNN
-F 3 "~" H 8950 2925 50  0001 C CNN
-	1    8950 2925
+L Device:R R13
+U 1 1 5F4C1E81
+P 13375 4700
+F 0 "R13" H 13445 4746 50  0000 L CNN
+F 1 "22k" H 13445 4655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 13305 4700 50  0001 C CNN
+F 3 "~" H 13375 4700 50  0001 C CNN
+	1    13375 4700
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	13150 4850 13375 4850
+Text GLabel 13375 4850 3    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	13150 4550 13375 4550
+Wire Wire Line
+	13375 4500 13375 4550
+Connection ~ 13375 4550
+Text GLabel 13375 4200 1    50   Input ~ 0
+12-40v
+Connection ~ 13150 4550
+Text GLabel 8925 4225 0    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	11650 4550 13150 4550
+Text GLabel 10650 5650 0    50   Output ~ 0
+200OK
+$Comp
+L Device:R R12
+U 1 1 5F4C561A
+P 13150 4700
+F 0 "R12" H 12950 4625 50  0000 L CNN
+F 1 "100k" H 12950 4500 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 13080 4700 50  0001 C CNN
+F 3 "~" H 13150 4700 50  0001 C CNN
+	1    13150 4700
+	1    0    0    -1  
+$EndComp
+Text GLabel 11650 4750 2    50   Output ~ 0
+SIM_CARD_ERROR
+Text GLabel 11650 4650 2    50   Output ~ 0
+NETWORK_ERROR
+Text GLabel 11650 4950 2    50   Output ~ 0
+SPI_NSS
+Text GLabel 11650 5050 2    50   Output ~ 0
+SPI_CSK
+Text GLabel 11650 5150 2    50   Output ~ 0
+SPI_MISO
+Text GLabel 11650 5250 2    50   Output ~ 0
+SPI_MOSI
+Text GLabel 8850 3925 0    50   Input ~ 0
+5v
+$Comp
+L Connector:Conn_01x02_Male J12
+U 1 1 5F2BDFEB
+P 12250 5150
+F 0 "J12" V 12312 5194 50  0001 L CNN
+F 1 "Conn_01x02_Male" V 12403 5194 50  0001 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 12250 5150 50  0001 C CNN
+F 3 "~" H 12250 5150 50  0001 C CNN
+	1    12250 5150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	12475 5350 12250 5350
+Wire Wire Line
+	11675 5350 12150 5350
+Wire Wire Line
+	12475 5450 12250 5450
+Wire Wire Line
+	11700 5450 12150 5450
+$Comp
+L Connector:Conn_01x02_Male J13
+U 1 1 5F2CC3E4
+P 12250 5250
+F 0 "J13" V 12312 5294 50  0001 L CNN
+F 1 "Conn_01x02_Male" V 12403 5294 50  0001 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 12250 5250 50  0001 C CNN
+F 3 "~" H 12250 5250 50  0001 C CNN
+	1    12250 5250
+	0    1    1    0   
+$EndComp
+Text GLabel 4700 5250 2    50   BiDi ~ 0
+CAN-HIGH
+Text GLabel 4700 5450 2    50   BiDi ~ 0
+CAN-LOW
+$Comp
+L SIM868:SIM868 U6
+U 1 1 5F2E0EF5
+P 6150 8975
+F 0 "U6" H 6150 10942 50  0000 C CNN
+F 1 "SIM868" H 6150 10851 50  0000 C CNN
+F 2 "its_app:XCVR_SIM868" H 6150 8975 50  0001 L BNN
+F 3 "SimCom" H 6150 8975 50  0001 L BNN
+	1    6150 8975
+	1    0    0    -1  
+$EndComp
+Text GLabel 4000 8975 0    50   Input ~ 0
+STM-SIM8xx_BridgeTX
+Wire Wire Line
+	7675 8975 7150 8975
+Text GLabel 4100 9275 3    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	4100 8975 4325 8975
+Wire Wire Line
+	4000 8975 4100 8975
+Connection ~ 4100 8975
+$Comp
+L Device:R R8
+U 1 1 5F2B40A9
+P 4100 9125
+F 0 "R8" H 4170 9171 50  0000 L CNN
+F 1 "5.6k" H 4170 9080 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 4030 9125 50  0001 C CNN
+F 3 "~" H 4100 9125 50  0001 C CNN
+	1    4100 9125
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	5150 8975 4625 8975
+$Comp
+L Device:R R9
+U 1 1 5F2A2985
+P 4475 8975
+F 0 "R9" V 4268 8975 50  0000 C CNN
+F 1 "1k" V 4359 8975 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 4405 8975 50  0001 C CNN
+F 3 "~" H 4475 8975 50  0001 C CNN
+	1    4475 8975
+	0    1    -1   0   
+$EndComp
+Text GLabel 7675 8975 2    50   Output ~ 0
+STM-SIM8xx_BridgeRX
+Text GLabel 5150 7275 0    50   Input ~ 0
+SIM8xx_PWR_PIN
+Text GLabel 8550 7425 2    50   Input ~ 0
+4v
+Text GLabel 7150 10775 2    50   UnSpc ~ 0
+GND
+Text GLabel 8525 7725 2    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	7150 7375 7150 7425
+$Comp
+L Device:C C15
+U 1 1 5F427C8C
+P 7925 7575
+F 0 "C15" H 8040 7621 50  0000 L CNN
+F 1 "33pF" H 8040 7530 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7963 7425 50  0001 C CNN
+F 3 "~" H 7925 7575 50  0001 C CNN
+	1    7925 7575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C14
+U 1 1 5F43A276
+P 7575 7575
+F 0 "C14" H 7690 7621 50  0000 L CNN
+F 1 "7.5nF" H 7690 7530 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7613 7425 50  0001 C CNN
+F 3 "~" H 7575 7575 50  0001 C CNN
+	1    7575 7575
+	1    0    0    -1  
+$EndComp
+Connection ~ 7150 7425
+Wire Wire Line
+	7150 7425 7150 7475
+Connection ~ 7575 7425
+Wire Wire Line
+	7575 7425 7150 7425
+Wire Wire Line
+	7575 7425 7925 7425
+Wire Wire Line
+	7575 7725 7925 7725
+Connection ~ 7925 7425
+Connection ~ 7925 7725
+Wire Wire Line
+	4150 10275 5150 10275
+Wire Wire Line
+	5150 10175 4150 10175
+$Comp
+L 78646-3001:78646-3001 J2
+U 1 1 5F4A6097
+P 3650 10275
+F 0 "J2" H 3650 9610 50  0000 C CNN
+F 1 "78646-3001" H 3650 9701 50  0000 C CNN
+F 2 "its_app:MOLEX_78646-3001" H 3650 10275 50  0001 L BNN
+F 3 "https://www.molex.com/pdm_docs/sd/786463001_sd.pdf" H 3650 10275 50  0001 L BNN
+F 4 "https://www.digikey.in/product-detail/en/molex/0786463001/WM9364CT-ND/3770350?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol" H 3650 10275 50  0001 L BNN "Field4"
+F 5 "None" H 3650 10275 50  0001 L BNN "Field5"
+F 6 "78646-3001" H 3650 10275 50  0001 L BNN "Field6"
+F 7 "WM9364CT-ND" H 3650 10275 50  0001 L BNN "Field7"
+F 8 "Molex" H 3650 10275 50  0001 L BNN "Field8"
+	1    3650 10275
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5150 10075 4250 10075
+Wire Wire Line
+	4250 10075 4250 9625
+Text GLabel 3150 9875 0    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	2875 9625 2875 10175
+Wire Wire Line
+	2875 9625 4250 9625
+Wire Wire Line
+	2875 10175 3150 10175
+Wire Wire Line
+	5150 9975 4350 9975
+Wire Wire Line
+	4350 9975 4350 9500
+Wire Wire Line
+	4350 9500 2775 9500
+Wire Wire Line
+	2775 9500 2775 10575
+Wire Wire Line
+	2775 10575 3150 10575
+Text GLabel 7150 7675 2    50   Output ~ 0
+2.8V
+$Comp
+L Device:R R17
+U 1 1 5F4F6E5D
+P 7300 8575
+F 0 "R17" V 7093 8575 50  0000 C CNN
+F 1 "10k" V 7184 8575 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 7230 8575 50  0001 C CNN
+F 3 "~" H 7300 8575 50  0001 C CNN
+	1    7300 8575
+	0    1    1    0   
+$EndComp
+Text GLabel 7450 8575 2    50   Input ~ 0
+GPS_EN
+Text GLabel 5150 7375 0    50   Output ~ 0
+GPS_EN
+Text GLabel 5150 7475 0    50   Input ~ 0
+SIM8xx_GPS_RX
+Text GLabel 5150 7575 0    50   Output ~ 0
+SIM8xx_GPS_TX
+Text GLabel 7150 8875 2    50   Output ~ 0
+SIM8xx_GPS_RX
+Text GLabel 5150 8875 0    50   Input ~ 0
+SIM8xx_GPS_TX
+Text GLabel 7150 7275 2    50   Input ~ 0
+4v
+$Comp
+L Device:Antenna AE2
+U 1 1 5F504888
+P 4950 10775
+F 0 "AE2" V 4850 10700 50  0000 C CNN
+F 1 " MOLEX 734120114 " V 4775 10800 50  0000 C CNN
+F 2 "its_app:KH-IPEX4-2020" H 4950 10775 50  0001 C CNN
+F 3 "~" H 4950 10775 50  0001 C CNN
+	1    4950 10775
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Antenna AE1
+U 1 1 5F5165D4
+P 4950 10575
+F 0 "AE1" V 5075 10550 50  0000 C CNN
+F 1 " MOLEX 734120114 " V 5175 10800 50  0000 C CNN
+F 2 "its_app:KH-IPEX4-2020" H 4950 10575 50  0001 C CNN
+F 3 "~" H 4950 10575 50  0001 C CNN
+	1    4950 10575
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7925 7425 8550 7425
+Wire Wire Line
+	7925 7725 8525 7725
 $EndSCHEMATC
