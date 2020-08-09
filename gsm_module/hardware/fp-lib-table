@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name its_app)(type KiCad)(uri /home/daruis1/repos/its_app)(options "")(descr ""))
+)

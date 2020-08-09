@@ -1,4 +1,7 @@
 # its_app
+
+### Schematics and PCB notes
+ - the Antenna with the footprint `KH-IPEX4-2020` is actually the footprint for `MOLEX 734120114` (I need to be better at kiCad)
 ### Notes on the SIM868 Module
  - it *needs* it's 2A peak current recommend connecting power to a battery
  - SIM Goes the other way around

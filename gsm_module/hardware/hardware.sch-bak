@@ -19,7 +19,7 @@ U 1 1 5F2608C9
 P 850 1475
 F 0 "J1" H 768 1050 50  0000 C CNN
 F 1 "Screw_Terminal_01x04" H 768 1141 50  0000 C CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x04_P1.27mm_Vertical" H 850 1475 50  0001 C CNN
+F 2 "its_app:5mm Pitch Screw Terminal 1x04" H 850 1475 50  0001 C CNN
 F 3 "~" H 850 1475 50  0001 C CNN
 	1    850  1475
 	-1   0    0    1   
@@ -589,8 +589,6 @@ Wire Wire Line
 	3700 5250 3600 5250
 Text GLabel 1325 4350 0    50   Input ~ 0
 SPI_MOSI
-Text GLabel 1325 4450 0    50   Input ~ 0
-SPI_MOSI
 Text GLabel 1325 4550 0    50   Input ~ 0
 SPI_NSS
 Text GLabel 1325 4650 0    50   Input ~ 0
@@ -633,7 +631,7 @@ U 1 1 5F2F1289
 P 7250 1475
 F 0 "J6" V 7312 1519 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 7403 1519 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 7250 1475 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7250 1475 50  0001 C CNN
 F 3 "~" H 7250 1475 50  0001 C CNN
 	1    7250 1475
 	0    1    1    0   
@@ -649,7 +647,7 @@ U 1 1 5F3010C0
 P 7250 1850
 F 0 "J7" V 7312 1894 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 7403 1894 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 7250 1850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7250 1850 50  0001 C CNN
 F 3 "~" H 7250 1850 50  0001 C CNN
 	1    7250 1850
 	0    1    1    0   
@@ -664,7 +662,7 @@ U 1 1 5F31A9DF
 P 1625 4150
 F 0 "J8" V 1687 4194 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 1778 4194 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 1625 4150 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1625 4150 50  0001 C CNN
 F 3 "~" H 1625 4150 50  0001 C CNN
 	1    1625 4150
 	0    1    1    0   
@@ -675,7 +673,7 @@ U 1 1 5F32827E
 P 1625 4250
 F 0 "J9" V 1687 4294 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 1778 4294 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 1625 4250 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1625 4250 50  0001 C CNN
 F 3 "~" H 1625 4250 50  0001 C CNN
 	1    1625 4250
 	0    1    1    0   
@@ -694,7 +692,7 @@ U 1 1 5F349CCE
 P 1625 4350
 F 0 "J10" V 1687 4394 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 1778 4394 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 1625 4350 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1625 4350 50  0001 C CNN
 F 3 "~" H 1625 4350 50  0001 C CNN
 	1    1625 4350
 	0    1    1    0   
@@ -709,7 +707,7 @@ U 1 1 5F35F3A1
 P 1625 4450
 F 0 "J11" V 1687 4494 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 1778 4494 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 1625 4450 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1625 4450 50  0001 C CNN
 F 3 "~" H 1625 4450 50  0001 C CNN
 	1    1625 4450
 	0    1    1    0   
@@ -743,44 +741,6 @@ Wire Wire Line
 Connection ~ 10325 2150
 Connection ~ 10425 2150
 $Comp
-L Device:C C8
-U 1 1 5F2AE9C9
-P 10400 4075
-F 0 "C8" H 10515 4121 50  0000 L CNN
-F 1 "4.7uF" H 10515 4030 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 10438 3925 50  0001 C CNN
-F 3 "~" H 10400 4075 50  0001 C CNN
-	1    10400 4075
-	1    0    0    1   
-$EndComp
-Connection ~ 10400 3925
-Wire Wire Line
-	9475 3925 9925 3925
-$Comp
-L Device:C C7
-U 1 1 5F2B13E0
-P 9925 4075
-F 0 "C7" H 10040 4121 50  0000 L CNN
-F 1 "100nF" H 10040 4030 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 9963 3925 50  0001 C CNN
-F 3 "~" H 9925 4075 50  0001 C CNN
-	1    9925 4075
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:C C6
-U 1 1 5F2AF9BD
-P 9475 4075
-F 0 "C6" H 9590 4121 50  0000 L CNN
-F 1 "100nF" H 9590 4030 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 9513 3925 50  0001 C CNN
-F 3 "~" H 9475 4075 50  0001 C CNN
-	1    9475 4075
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	11125 4350 11150 4350
-$Comp
 L MCU_ST_STM32F0:STM32F030F4Px U4
 U 1 1 5F25C437
 P 11150 5050
@@ -791,9 +751,6 @@ F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/da
 	1    11150 5050
 	1    0    0    -1  
 $EndComp
-Connection ~ 9925 3925
-Wire Wire Line
-	9925 3925 10400 3925
 Connection ~ 11150 4350
 Wire Wire Line
 	11150 4350 11250 4350
@@ -869,33 +826,6 @@ Wire Wire Line
 	10200 5125 10000 5125
 Wire Wire Line
 	11650 5650 12500 5650
-Wire Wire Line
-	10400 3925 10825 3925
-$Comp
-L Device:C C9
-U 1 1 5F2F3561
-P 10825 4075
-F 0 "C9" H 10940 4121 50  0000 L CNN
-F 1 "1uF" H 10940 4030 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 10863 3925 50  0001 C CNN
-F 3 "~" H 10825 4075 50  0001 C CNN
-	1    10825 4075
-	1    0    0    1   
-$EndComp
-Connection ~ 10825 3925
-$Comp
-L Device:C C10
-U 1 1 5F2F40E3
-P 11150 4075
-F 0 "C10" H 11265 4121 50  0000 L CNN
-F 1 "10uF" H 11265 4030 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 11188 3925 50  0001 C CNN
-F 3 "~" H 11150 4075 50  0001 C CNN
-	1    11150 4075
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	10825 3925 11150 3925
 Text GLabel 12475 5450 2    50   Input ~ 0
 STM-SIM8xx_BridgeRX
 Wire Wire Line
@@ -918,7 +848,7 @@ U 1 1 5F2DFC4D
 P 12775 6125
 F 0 "J5" H 12883 6306 50  0000 C CNN
 F 1 "SWD Debugging Interface" H 12883 6215 50  0000 C CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 12775 6125 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 12775 6125 50  0001 C CNN
 F 3 "~" H 12775 6125 50  0001 C CNN
 	1    12775 6125
 	-1   0    0    1   
@@ -931,40 +861,6 @@ Wire Wire Line
 	12500 5650 12500 6125
 Wire Wire Line
 	12500 6125 12575 6125
-$Comp
-L Regulator_Linear:AMS1117-3.3 U2
-U 1 1 5F3C655D
-P 9150 3925
-F 0 "U2" H 9150 4167 50  0000 C CNN
-F 1 "AMS1117-3.3" H 9150 4076 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 9150 4125 50  0001 C CNN
-F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 9250 3675 50  0001 C CNN
-	1    9150 3925
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9150 4225 9475 4225
-Connection ~ 9475 4225
-Wire Wire Line
-	9475 4225 9925 4225
-Connection ~ 9925 4225
-Connection ~ 10400 4225
-Connection ~ 10825 4225
-Wire Wire Line
-	10825 4225 11150 4225
-Wire Wire Line
-	9925 4225 10400 4225
-Wire Wire Line
-	10400 4225 10825 4225
-Wire Wire Line
-	9450 3925 9475 3925
-Connection ~ 9475 3925
-Wire Wire Line
-	11150 4225 11150 4350
-Connection ~ 11150 4225
-Wire Wire Line
-	8925 4225 9150 4225
-Connection ~ 9150 4225
 Text GLabel 11650 4850 2    50   Output ~ 0
 SIM8xx_PWR_PIN
 Text GLabel 12475 5350 2    50   Output ~ 0
@@ -1003,8 +899,6 @@ Connection ~ 13375 4550
 Text GLabel 13375 4200 1    50   Input ~ 0
 12-40v
 Connection ~ 13150 4550
-Text GLabel 8925 4225 0    50   UnSpc ~ 0
-GND
 Wire Wire Line
 	11650 4550 13150 4550
 Text GLabel 10650 5650 0    50   Output ~ 0
@@ -1032,15 +926,13 @@ Text GLabel 11650 5150 2    50   Output ~ 0
 SPI_MISO
 Text GLabel 11650 5250 2    50   Output ~ 0
 SPI_MOSI
-Text GLabel 8850 3925 0    50   Input ~ 0
-5v
 $Comp
 L Connector:Conn_01x02_Male J12
 U 1 1 5F2BDFEB
 P 12250 5150
 F 0 "J12" V 12312 5194 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 12403 5194 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 12250 5150 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 12250 5150 50  0001 C CNN
 F 3 "~" H 12250 5150 50  0001 C CNN
 	1    12250 5150
 	0    1    1    0   
@@ -1059,7 +951,7 @@ U 1 1 5F2CC3E4
 P 12250 5250
 F 0 "J13" V 12312 5294 50  0001 L CNN
 F 1 "Conn_01x02_Male" V 12403 5294 50  0001 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 12250 5250 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 12250 5250 50  0001 C CNN
 F 3 "~" H 12250 5250 50  0001 C CNN
 	1    12250 5250
 	0    1    1    0   
@@ -1074,7 +966,7 @@ U 1 1 5F2E0EF5
 P 6150 8975
 F 0 "U6" H 6150 10942 50  0000 C CNN
 F 1 "SIM868" H 6150 10851 50  0000 C CNN
-F 2 "XCVR_SIM868" H 6150 8975 50  0001 L BNN
+F 2 "its_app:XCVR_SIM868" H 6150 8975 50  0001 L BNN
 F 3 "SimCom" H 6150 8975 50  0001 L BNN
 	1    6150 8975
 	1    0    0    -1  
@@ -1132,7 +1024,7 @@ U 1 1 5F427C8C
 P 7925 7575
 F 0 "C15" H 8040 7621 50  0000 L CNN
 F 1 "33pF" H 8040 7530 50  0000 L CNN
-F 2 "" H 7963 7425 50  0001 C CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7963 7425 50  0001 C CNN
 F 3 "~" H 7925 7575 50  0001 C CNN
 	1    7925 7575
 	1    0    0    -1  
@@ -1143,7 +1035,7 @@ U 1 1 5F43A276
 P 7575 7575
 F 0 "C14" H 7690 7621 50  0000 L CNN
 F 1 "7.5nF" H 7690 7530 50  0000 L CNN
-F 2 "" H 7613 7425 50  0001 C CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7613 7425 50  0001 C CNN
 F 3 "~" H 7575 7575 50  0001 C CNN
 	1    7575 7575
 	1    0    0    -1  
@@ -1170,7 +1062,7 @@ U 1 1 5F4A6097
 P 3650 10275
 F 0 "J2" H 3650 9610 50  0000 C CNN
 F 1 "78646-3001" H 3650 9701 50  0000 C CNN
-F 2 "MOLEX_78646-3001" H 3650 10275 50  0001 L BNN
+F 2 "its_app:MOLEX_78646-3001" H 3650 10275 50  0001 L BNN
 F 3 "https://www.molex.com/pdm_docs/sd/786463001_sd.pdf" H 3650 10275 50  0001 L BNN
 F 4 "https://www.digikey.in/product-detail/en/molex/0786463001/WM9364CT-ND/3770350?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol" H 3650 10275 50  0001 L BNN "Field4"
 F 5 "None" H 3650 10275 50  0001 L BNN "Field5"
@@ -1229,30 +1121,145 @@ Text GLabel 5150 8875 0    50   Input ~ 0
 SIM8xx_GPS_TX
 Text GLabel 7150 7275 2    50   Input ~ 0
 4v
-$Comp
-L Device:Antenna AE2
-U 1 1 5F504888
-P 4950 10775
-F 0 "AE2" V 4850 10700 50  0000 C CNN
-F 1 "KH-IPEX4-2020" V 4775 10800 50  0000 C CNN
-F 2 "" H 4950 10775 50  0001 C CNN
-F 3 "~" H 4950 10775 50  0001 C CNN
-	1    4950 10775
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:Antenna AE1
-U 1 1 5F5165D4
-P 4950 10575
-F 0 "AE1" V 5075 10550 50  0000 C CNN
-F 1 "KH-IPEX4-2020" V 5175 10800 50  0000 C CNN
-F 2 "" H 4950 10575 50  0001 C CNN
-F 3 "~" H 4950 10575 50  0001 C CNN
-	1    4950 10575
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	7925 7425 8550 7425
 Wire Wire Line
 	7925 7725 8525 7725
+$Comp
+L SIM868:MOLEX-734120114 U7
+U 1 1 5F31FDE4
+P 4900 10825
+F 0 "U7" H 4900 10452 50  0000 C CNN
+F 1 "MOLEX-734120114" H 4900 10849 50  0001 C CNN
+F 2 "its_app:KH-IPEX4-2020" H 4900 10825 50  0001 C CNN
+F 3 "" H 4900 10825 50  0001 C CNN
+	1    4900 10825
+	-1   0    0    1   
+$EndComp
+$Comp
+L SIM868:MOLEX-734120114 U8
+U 1 1 5F32103F
+P 4900 11125
+F 0 "U8" H 4900 10660 50  0000 C CNN
+F 1 "MOLEX-734120114" H 4900 10751 50  0000 C CNN
+F 2 "its_app:KH-IPEX4-2020" H 4900 11125 50  0001 C CNN
+F 3 "" H 4900 11125 50  0001 C CNN
+	1    4900 11125
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5150 10875 5150 10775
+Text GLabel 4650 10825 0    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	4650 10675 4650 10975
+Text GLabel 1325 4450 0    50   Input ~ 0
+SPI_MISO
+Text GLabel 9175 4350 0    50   Input ~ 0
+5v
+Text GLabel 9250 4050 0    50   UnSpc ~ 0
+GND
+Connection ~ 9475 4050
+Wire Wire Line
+	9250 4050 9475 4050
+Connection ~ 11475 4050
+Wire Wire Line
+	11475 4050 11475 3925
+Connection ~ 9800 4350
+Wire Wire Line
+	9775 4350 9800 4350
+Wire Wire Line
+	10725 4050 11150 4050
+Wire Wire Line
+	10250 4050 10725 4050
+Wire Wire Line
+	11150 4050 11475 4050
+Connection ~ 11150 4050
+Connection ~ 10725 4050
+Connection ~ 10250 4050
+Wire Wire Line
+	9800 4050 10250 4050
+Connection ~ 9800 4050
+Wire Wire Line
+	9475 4050 9800 4050
+$Comp
+L Regulator_Linear:AMS1117-3.3 U2
+U 1 1 5F3C655D
+P 9475 4350
+F 0 "U2" H 9475 4592 50  0000 C CNN
+F 1 "AMS1117-3.3" H 9475 4501 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 9475 4550 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 9575 4100 50  0001 C CNN
+	1    9475 4350
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:C C10
+U 1 1 5F2F40E3
+P 11475 4200
+F 0 "C10" H 11590 4246 50  0000 L CNN
+F 1 "10uF" H 11590 4155 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 11513 4050 50  0001 C CNN
+F 3 "~" H 11475 4200 50  0001 C CNN
+	1    11475 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C9
+U 1 1 5F2F3561
+P 11150 4200
+F 0 "C9" H 11265 4246 50  0000 L CNN
+F 1 "1uF" H 11265 4155 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 11188 4050 50  0001 C CNN
+F 3 "~" H 11150 4200 50  0001 C CNN
+	1    11150 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 4350 10725 4350
+Connection ~ 10250 4350
+$Comp
+L Device:C C6
+U 1 1 5F2AF9BD
+P 9800 4200
+F 0 "C6" H 9915 4246 50  0000 L CNN
+F 1 "100nF" H 9915 4155 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 9838 4050 50  0001 C CNN
+F 3 "~" H 9800 4200 50  0001 C CNN
+	1    9800 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C7
+U 1 1 5F2B13E0
+P 10250 4200
+F 0 "C7" H 10365 4246 50  0000 L CNN
+F 1 "100nF" H 10365 4155 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 10288 4050 50  0001 C CNN
+F 3 "~" H 10250 4200 50  0001 C CNN
+	1    10250 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9800 4350 10250 4350
+Connection ~ 10725 4350
+$Comp
+L Device:C C8
+U 1 1 5F2AE9C9
+P 10725 4200
+F 0 "C8" H 10840 4246 50  0000 L CNN
+F 1 "4.7uF" H 10840 4155 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 10763 4050 50  0001 C CNN
+F 3 "~" H 10725 4200 50  0001 C CNN
+	1    10725 4200
+	1    0    0    -1  
+$EndComp
+Connection ~ 11125 4350
+Wire Wire Line
+	11125 4350 11150 4350
+Connection ~ 11250 4350
+Wire Wire Line
+	11250 4350 11475 4350
+Wire Wire Line
+	10725 4350 11150 4350
 $EndSCHEMATC
