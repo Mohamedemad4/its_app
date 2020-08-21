@@ -44,17 +44,6 @@ CAN-LOW
 Text GLabel 1050 1275 2    50   BiDi ~ 0
 CAN-HIGH
 $Comp
-L Device:CP1_Small polcap1
-U 1 1 5F26D3DB
-P 3525 1775
-F 0 "polcap1" H 3616 1821 50  0000 L CNN
-F 1 "470uF" H 3616 1730 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 3525 1775 50  0001 C CNN
-F 3 "~" H 3525 1775 50  0001 C CNN
-	1    3525 1775
-	1    0    0    -1  
-$EndComp
-$Comp
 L pspice:CAP C3
 U 1 1 5F26E0DF
 P 3950 1925
@@ -68,17 +57,8 @@ $EndComp
 Text GLabel 3450 1675 0    50   Input ~ 0
 12-40v
 Wire Wire Line
-	3450 1675 3525 1675
-Connection ~ 3525 1675
-Wire Wire Line
-	3525 1675 3950 1675
-Wire Wire Line
 	3950 1675 4425 1675
 Connection ~ 3950 1675
-Wire Wire Line
-	3525 2175 3525 1875
-Wire Wire Line
-	3950 2175 3525 2175
 $Comp
 L Diode:1N5820 D1
 U 1 1 5F272774
@@ -92,9 +72,6 @@ F 3 "https://www.onsemi.com/pub/Collateral/MBR350-D.PDF" H 5775 1900 50  0001 C 
 $EndComp
 Text GLabel 3325 2175 0    50   UnSpc ~ 0
 GND
-Wire Wire Line
-	3525 2175 3325 2175
-Connection ~ 3525 2175
 Wire Wire Line
 	3950 2175 4600 2175
 Wire Wire Line
@@ -147,8 +124,6 @@ Wire Wire Line
 	5775 1750 5775 1675
 Connection ~ 6650 1675
 Wire Wire Line
-	6650 1875 6650 2050
-Wire Wire Line
 	6275 1675 6650 1675
 Connection ~ 5775 1675
 Connection ~ 5775 2050
@@ -174,17 +149,6 @@ F 3 "~" H 6650 1775 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP1_Small polcap3
-U 1 1 5F2E20E3
-P 8875 1700
-F 0 "polcap3" H 8966 1746 50  0000 L CNN
-F 1 "470uF" H 8966 1655 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 8875 1700 50  0001 C CNN
-F 3 "~" H 8875 1700 50  0001 C CNN
-	1    8875 1700
-	1    0    0    -1  
-$EndComp
-$Comp
 L pspice:CAP C4
 U 1 1 5F2E20E9
 P 9300 1850
@@ -198,17 +162,8 @@ $EndComp
 Text GLabel 8800 1600 0    50   Input ~ 0
 12-40v
 Wire Wire Line
-	8800 1600 8875 1600
-Connection ~ 8875 1600
-Wire Wire Line
-	8875 1600 9300 1600
-Wire Wire Line
 	9300 1600 9775 1600
 Connection ~ 9300 1600
-Wire Wire Line
-	8875 2100 8875 1800
-Wire Wire Line
-	9300 2100 8875 2100
 $Comp
 L Diode:1N5820 D2
 U 1 1 5F2E20F7
@@ -222,9 +177,6 @@ F 3 "https://www.onsemi.com/pub/Collateral/MBR350-D.PDF" H 11125 1825 50  0001 C
 $EndComp
 Text GLabel 8675 2100 0    50   UnSpc ~ 0
 GND
-Wire Wire Line
-	8875 2100 8675 2100
-Connection ~ 8875 2100
 Wire Wire Line
 	9300 2100 9950 2100
 Wire Wire Line
@@ -470,7 +422,6 @@ Wire Wire Line
 	6800 1575 6800 1675
 Wire Wire Line
 	6800 1675 6650 1675
-Connection ~ 6650 2050
 Text GLabel 2525 5750 3    50   UnSpc ~ 0
 GND
 Wire Wire Line
@@ -598,7 +549,7 @@ L Device:C C11
 U 1 1 5F5351A3
 P 4050 4650
 F 0 "C11" H 3750 4600 50  0000 L CNN
-F 1 "7.5nF" H 3750 4700 50  0000 L CNN
+F 1 "3.3nF" H 3750 4700 50  0000 L CNN
 F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 4088 4500 50  0001 C CNN
 F 3 "~" H 4050 4650 50  0001 C CNN
 	1    4050 4650
@@ -611,7 +562,7 @@ L Device:C C5
 U 1 1 5F535FAB
 P 2375 3850
 F 0 "C5" H 2100 3825 50  0000 L CNN
-F 1 "7.5nF" H 2075 3925 50  0000 L CNN
+F 1 "3.3nF" H 2075 3925 50  0000 L CNN
 F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 2413 3700 50  0001 C CNN
 F 3 "~" H 2375 3850 50  0001 C CNN
 	1    2375 3850
@@ -641,21 +592,6 @@ Wire Wire Line
 Wire Wire Line
 	7150 1675 6800 1675
 Connection ~ 6800 1675
-$Comp
-L Connector:Conn_01x02_Male J7
-U 1 1 5F3010C0
-P 7250 1850
-F 0 "J7" V 7312 1894 50  0001 L CNN
-F 1 "Conn_01x02_Male" V 7403 1894 50  0001 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7250 1850 50  0001 C CNN
-F 3 "~" H 7250 1850 50  0001 C CNN
-	1    7250 1850
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7250 2050 7400 2050
-Wire Wire Line
-	6650 2050 7150 2050
 $Comp
 L Connector:Conn_01x02_Male J8
 U 1 1 5F31A9DF
@@ -1118,34 +1054,6 @@ Wire Wire Line
 	7925 7425 8550 7425
 Wire Wire Line
 	7925 7725 8525 7725
-$Comp
-L SIM868:MOLEX-734120114 U7
-U 1 1 5F31FDE4
-P 4900 10825
-F 0 "U7" H 4900 10452 50  0000 C CNN
-F 1 "MOLEX-734120114" H 4900 10849 50  0001 C CNN
-F 2 "its_app:KH-IPEX4-2020" H 4900 10825 50  0001 C CNN
-F 3 "" H 4900 10825 50  0001 C CNN
-	1    4900 10825
-	-1   0    0    1   
-$EndComp
-$Comp
-L SIM868:MOLEX-734120114 U8
-U 1 1 5F32103F
-P 4900 11125
-F 0 "U8" H 4900 10660 50  0000 C CNN
-F 1 "MOLEX-734120114" H 4900 10751 50  0000 C CNN
-F 2 "its_app:KH-IPEX4-2020" H 4900 11125 50  0001 C CNN
-F 3 "" H 4900 11125 50  0001 C CNN
-	1    4900 11125
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	5150 10875 5150 10775
-Text GLabel 4650 10825 0    50   UnSpc ~ 0
-GND
-Wire Wire Line
-	4650 10675 4650 10975
 Text GLabel 1325 4450 0    50   Input ~ 0
 SPI_MISO
 Text GLabel 9175 4350 0    50   Input ~ 0
@@ -1261,4 +1169,45 @@ Wire Wire Line
 Wire Wire Line
 	10650 5025 10650 4750
 Connection ~ 10650 4750
+$Comp
+L esortic_hardware_lib:BWSMA-KE-Z001 A1
+U 1 1 5F3D96CB
+P 4850 10825
+F 0 "A1" H 4875 11300 50  0000 C CNN
+F 1 "BWSMA-KE-Z001" H 4875 11209 50  0000 C CNN
+F 2 "its_app:BWSMA-KE-Z001" H 4800 10775 50  0001 C CNN
+F 3 "" H 4800 10775 50  0001 C CNN
+	1    4850 10825
+	1    0    0    -1  
+$EndComp
+$Comp
+L esortic_hardware_lib:BWSMA-KE-Z001 A2
+U 1 1 5F3D9FB1
+P 4850 11300
+F 0 "A2" H 4875 11775 50  0000 C CNN
+F 1 "BWSMA-KE-Z001" H 4875 11684 50  0000 C CNN
+F 2 "its_app:BWSMA-KE-Z001" H 4800 11250 50  0001 C CNN
+F 3 "" H 4800 11250 50  0001 C CNN
+	1    4850 11300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 11050 5150 10775
+Wire Wire Line
+	4600 10725 4600 11200
+Text GLabel 4600 11000 0    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	8800 1600 9300 1600
+Wire Wire Line
+	8675 2100 9300 2100
+Wire Wire Line
+	3450 1675 3950 1675
+Wire Wire Line
+	3325 2175 3950 2175
+Wire Wire Line
+	6650 1875 6650 2050
+Wire Wire Line
+	6650 2050 7400 2050
+Connection ~ 6650 2050
 $EndSCHEMATC
