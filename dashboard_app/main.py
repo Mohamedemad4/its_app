@@ -20,7 +20,7 @@ if platform!="android" and platform!='ios':
     from kivy.core.window import Window
     Window.size = (1080//2,1920//2)
 
-api_ins=api()
+api_ins=api(platform=platform)
 utils_ins=utils()
 
 sm = ScreenManager()

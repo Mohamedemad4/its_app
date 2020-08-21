@@ -6,11 +6,12 @@ from flask import jsonify
 from gevent.pywsgi import WSGIServer
 from flask import Flask,Request,Response,render_template,request,abort
 from db_mod import db_mod
-from utils import warn_via_email
+from notf_man import notf_manager
 
 app = Flask(__name__)
 app.debug = True
 db_ins=db_mod()
+notf=notf_manager()
 
 def log_requests_and_origin(f):
     #https://stackoverflow.com/questions/26736419/
@@ -53,10 +54,22 @@ def log_data_dump(token,x,y,z,lat,lon,speed,accuracy):
     if metadata:
         email,max_spd=metadata["email"],metadata["max_spd"]
         if float(speed)>float(max_spd):
-            warn_via_email(email,token,"car {0} exceeded Max speed limit {1} and is running at {2}".format(token,max_spd,speed))
-            
+            notf.warn_via_email(email,token,"Speed Alert!","car {0} exceeded Max speed limit {1} and is running at {2}".format(token,max_spd,speed))
     db_ins.log_car_data(token,lat,lon,speed,accuracy,time.time())
     return jsonify({"status":"ok!"})
+
+@app.route("/get_notfs/<email>")
+@app.route("/get_notfs/<email>/")
+@log_requests_and_origin
+def get_notfs(email):
+    metadata=db_ins.get_metadata_by_email(email)
+    if not metadata:
+        return jsonify({"status":"email isn't registered!"}),400
+    notfs=notf.get_notfs(email)
+    if notfs:
+        return jsonify(notfs)
+    return jsonify({"new_notfs":False})
+        
 
 @app.route("/get_data_recent/<token>")
 @app.route("/get_data_recent/<token>/")

@@ -5,8 +5,10 @@ import pprint
 import requests as req
 
 
-hz=.1 # real time is 2hz test time is 10hz
-server_uri="http://mohamedemad4.pythonanywhere.com"#"http://localhost:7060"
+hz=.1 # real time is .5hz test time is 10hz
+real_hz=.5
+min_of_speeding_to_alert=.5 #how many minutes should be passed speeding before sending a warning 
+server_uri="http://localhost:7060"#"http://mohamedemad4.pythonanywhere.com"
 token="test-token"
 fake_token="I-am-not-real"
 email="mohamed.emad4bubble@gmail.com"
@@ -15,8 +17,9 @@ max_spd_beta=50
 lat,lon,accuracy=30.0094,31.2086,1.3
 CAR_DATA_KEYS=["car_token","lat","lot","speed","accuracy","Unixtimestamp"]
 TOKEN_METADATA_KEYS=["car_token","email","max_spd"]
+NOTF_KEYS=["email","title","msg"]
 time_window=(0,0) 
-dump_req=50
+dump_req=60 # simulate 2 minute of logs
 
 def _log_data(token,speed):
     res=req.get(server_uri+"/data_dump/{token}/0/0/0/{lat}/{lon}/{speed}/{acc}".format(
@@ -91,13 +94,21 @@ def test_dump_bad_token():
        time.sleep(hz)
     assert sum(responses)==10*400
 
-def test_dump_speed_exceeding_data_test():
-    "Test ump data that's over the speed limit"
+def test_speed_exceeding_data_alert():
+    "Test dump data that's over the speed limit and the notification system"
     responses=[]
     for i in range(dump_req):
        responses.append(_log_data(token,random.randint(max_spd,max_spd*2)))
        time.sleep(hz)
     assert sum(responses)==dump_req*200
+    res=req.get(server_uri+"/get_notfs/"+email)
+    assert res.status_code==200
+
+    json_resp=json.loads(res.content)
+    assert set([i for i in json_resp[0].keys()])==set(NOTF_KEYS)
+
+    ## calc how many alerts we should ve received and if we received as many alerts 
+    assert len(json_resp)==int(((dump_req/real_hz)/60)/min_of_speeding_to_alert)-1
 
 def test_fetch_all_data_test_and_keys_match_test():
     "Test Fetching and check if the JSON keys match"

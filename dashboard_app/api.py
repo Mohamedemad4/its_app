@@ -3,9 +3,8 @@
 import time
 import json
 import requests as req
+from threading import Thread
 from kivy.storage.jsonstore import JsonStore
-
-
 """
 #storage.json
 
@@ -27,13 +26,23 @@ from kivy.storage.jsonstore import JsonStore
 """
 
 class api:
-    def __init__(self,server_uri="http://localhost:7060"):
+    def __init__(self,platform,server_uri="http://localhost:7060"):
         self.server_uri=server_uri
         self.storage = JsonStore('storage.json')
         self.tokens={}
+        self.platform=platform
         if self.is_registered():
             self.email=self.storage["email"]["email"]
             self.get_all_vars()
+            if platform=="ios":
+                from pyobjus import autoclass, objc_str
+                from pyobjus.dylib_manager import load_framework, INCLUDE
+                load_framework(INCLUDE.AppKit)
+                NSAlert = autoclass('NSAlert')
+            else:
+                import plyer
+            self.notf_thread=Thread(target=self.notf_loop)
+            self.notf_thread.start()
 
     def api_call(self,endpoint,*args):
         try:
@@ -45,6 +54,24 @@ class api:
         except Exception as e:
             print(e)
             return False,000
+
+    def notf_loop(self):
+        while True:
+            if not self.check_for_internet():
+                continue
+            notfs=self.api_call("get_notfs",self.email)[0]
+            if not notfs: # if this is false need to be logged somewhere
+                continue
+            for notf in notfs:
+               if self.platform=="ios":
+                   alert = NSAlert.alloc().init()
+                   alert.setMessageText_(objc_str(notf["msg"]))
+                   alert.runModal()
+               else:
+                   kwargs = {'title': notf["title"], 'message': notf["msg"]}
+                   plyer.notification.notify(**kwargs)
+            time.sleep(5)
+        return
 
     def get_all_vars(self):
         """

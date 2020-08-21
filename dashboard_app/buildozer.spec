@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,openssl,futures,requests,urllib3,sqlite3,chardet,idna,certifi
+requirements = python3,kivy,openssl,futures,requests,urllib3,sqlite3,chardet,idna,certifi,plyer,android
 garden_requirements = mapview
 
 # (str) Custom source folders for requirements
