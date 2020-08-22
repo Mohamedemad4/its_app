@@ -10,12 +10,6 @@
  - there is a 30char **hard** limit on token names
  - Expected Hz is .5Hz 
     - i.e 30 logs is a minute of data
-### Packages
-
- #### dashboard app
-     - using https://github.com/kivy-garden/mapview 1.0.5
- #### prototype app
-     - using https://github.com/kivy/plyer/ v1.4.3
 
 ### Config Vars
 

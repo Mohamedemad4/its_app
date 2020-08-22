@@ -50,5 +50,9 @@
   "devDependencies": {
     "@capacitor/cli": "2.4.0"
   },
-  "description": "An Ionic project"
+  "description": "Cross Platform client for its_app",
+  "main": "index.js",
+  "keywords": [],
+  "author": "mohamedemad4",
+  "license": "ISC"
 }

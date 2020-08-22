@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import {helpCircleOutline,mapSharp,settingsOutline} from 'ionicons/icons';
+import AsyncStorage from '@react-native-community/async-storage';
 import HelpScreen from './pages/HelpScreen';
 import MapScreen from './pages/Map';
 import OnBoarding from './pages/OnBoarding';
@@ -35,12 +36,16 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-
-/* Theme variables */
 import './theme/variables.css';
 
 
 function App(){
+  const [email, setEmail] = useState("not_set");
+  AsyncStorage.getItem("email").then((v)=>{
+    if (v!=null){
+      setEmail(v)
+    }
+  })
   return (
       <IonApp>
         <IonReactRouter>
@@ -56,12 +61,11 @@ function App(){
               <Route path="/onboarding" component={OnBoarding} exact={true} />
               <Route path="/" render={() =>
               {
-                if (true) {
-                  return (<Redirect to="/map" />)
-                }else{
+                if (email==="not_set") {
                   return (<Redirect to="/onboarding" />)
+                }else{
+                  return (<Redirect to="/map" />)
                 }
-              
               }} exact={true} />
             </IonRouterOutlet>
 
