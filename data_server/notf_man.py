@@ -15,27 +15,27 @@ class notf_manager:
                  
         ##implements a notf queqe to handle nots piling up on the user
         self.c.execute('''CREATE TABLE notfs_q
-                 (email VARCHAR(255),msg VARCHAR(255),title VARCHAR(255))''')
+                 (client_token VARCHAR(255),msg VARCHAR(255),title VARCHAR(255))''')
         self.conn.commit()
 
     def get_cur_date(self):
         return datetime.utcfromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
 
-    def warn_via_email(self,email,token,title,wmsg):
-        self.c.execute("INSERT INTO car_spd_warn_throt VALUES (?,?)",(token,time.time()))
-        self.c.execute("SELECT * from car_spd_warn_throt WHERE car_token=?",(token,))
+    def push(self,client_token,car_token,title,wmsg):
+        self.c.execute("INSERT INTO car_spd_warn_throt VALUES (?,?)",(car_token,time.time()))
+        self.c.execute("SELECT * from car_spd_warn_throt WHERE car_token=?",(car_token,))
         if len(self.c.fetchall())>=self.MAX_THROT_ENTRIES:
-            self.c.execute("DELETE FROM car_spd_warn_throt WHERE car_token=?",(token,))
+            self.c.execute("DELETE FROM car_spd_warn_throt WHERE car_token=?",(car_token,))
         else:
             return False
-        self.c.execute("INSERT INTO notfs_q VALUES (?,?,?) ",(email,wmsg,title))       
+        self.c.execute("INSERT INTO notfs_q VALUES (?,?,?) ",(client_token,wmsg,title))       
         return True
     
-    def get_notfs(self,email):
-        self.c.execute("SELECT * from notfs_q WHERE email=?",(email,))
+    def get_notfs(self,client_token):
+        self.c.execute("SELECT * from notfs_q WHERE client_token=?",(client_token,))
         fa=self.c.fetchall()
         if fa==[]:
             return False
         else:
-            self.c.execute("DELETE FROM notfs_q WHERE email=?",(email,))
+            self.c.execute("DELETE FROM notfs_q WHERE client_token=?",(client_token,))
             return fa

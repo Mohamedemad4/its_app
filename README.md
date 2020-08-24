@@ -10,6 +10,15 @@
  - there is a 30char **hard** limit on token names
  - Expected Hz is .5Hz 
     - i.e 30 logs is a minute of data
+ - we have 2 kinds of tokens 
+
+    - Client Tokens
+        - Set by "login" on the client 
+        - Used for Push notifications and everything else client related by car_token agnostic
+
+    - Car Tokens
+        - Preset in QR code on the Device it self
+        - Multiple Client tokens can be registered to the Same Car Token
 
 ### Config Vars
 
@@ -25,8 +34,8 @@
     server_uri="http://localhost:7060"
     email="mohamed.emad4bubble@gmail.com"
     CAR_DATA_KEYS=["car_token","lat","lot","speed","accuracy","Unixtimestamp"]
-    TOKEN_METADATA_KEYS=["car_token","email","max_spd"]
-    NOTF_KEYS=["new_notf","title","msg"]
+    TOKEN_METADATA_KEYS=["car_token","client_token","max_spd"]
+    NOTF_KEYS=["client_token","title","msg"]
     real_hz=.5
 ```
 #### data_server/notf_man.py

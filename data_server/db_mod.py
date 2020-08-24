@@ -22,7 +22,7 @@ class db_mod():
                          (car_token VARCHAR(255),lat REAL,lot REAL,speed REAL,accuracy REAL,Unixtimestamp BIGINT)''')
 
             self.c.execute('''CREATE TABLE car_metadata
-                         (car_token VARCHAR(255),email VARCHAR(255),max_spd REAL)''')
+                         (car_token VARCHAR(255),client_token VARCHAR(255),max_spd REAL)''')
             
             self.c.execute('''CREATE TABLE registered_cars
                         (car_token VARCHAR(255))''')
@@ -31,7 +31,7 @@ class db_mod():
 
             self.conn.commit()
     
-    def is_token_registered(self,token):
+    def is_car_token_registered(self,token):
         self.c.execute("SELECT * FROM registered_cars WHERE car_token=? ",(token,))
         if self.c.fetchall()==[]:
             return False
@@ -51,21 +51,21 @@ class db_mod():
         else:
             return fa
 
-    def make_car_metadata(self,token,email,max_spd,ov=False):
+    def make_car_metadata(self,token,client_token,max_spd,ov=False):
         self.c.execute("DELETE FROM car_metadata where car_token = ?",(token,))
-        self.c.execute("INSERT INTO car_metadata VALUES (?,?,?)",(token,email,max_spd))
+        self.c.execute("INSERT INTO car_metadata VALUES (?,?,?)",(token,client_token,max_spd))
         self.conn.commit() 
         return True
         
     def get_car_metadata_by_token(self,token):
         self.c.execute("SELECT * FROM car_metadata where car_token=?",(token,))
-        fs=self.c.fetchone()
+        fs=self.c.fetchall()
         if fs==None:
             return False
         return fs
     
-    def get_metadata_by_email(self,email):
-        self.c.execute("SELECT * FROM car_metadata WHERE email=?",(email,))
+    def get_metadata_by_client_token(self,client_token):
+        self.c.execute("SELECT * FROM car_metadata WHERE client_token=?",(client_token,))
         fa=self.c.fetchall()
         if fa==None:
             return False

@@ -11,13 +11,13 @@ min_of_speeding_to_alert=.5 #how many minutes should be passed speeding before s
 server_uri="http://localhost:7060"#"http://mohamedemad4.pythonanywhere.com"
 token="test-token"
 fake_token="I-am-not-real"
-email="mohamed.emad4bubble@gmail.com"
+client_token="ClientToken69"
 max_spd=30
 max_spd_beta=50
 lat,lon,accuracy=30.0094,31.2086,1.3
 CAR_DATA_KEYS=["car_token","lat","lot","speed","accuracy","Unixtimestamp"]
-TOKEN_METADATA_KEYS=["car_token","email","max_spd"]
-NOTF_KEYS=["email","title","msg"]
+TOKEN_METADATA_KEYS=["car_token","client_token","max_spd"]
+NOTF_KEYS=["client_token","title","msg"]
 time_window=(0,0) 
 dump_req=60 # simulate 2 minute of logs
 
@@ -33,20 +33,14 @@ def test_ping():
 
 def test_registration():
     "Test Registration Of a new Token"
-    res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
-        token=token,email=email,max_spd=max_spd
+    res=req.get(server_uri+"/register_token/{token}/{client_token}/{max_spd}".format(
+        token=token,client_token=client_token,max_spd=max_spd
     ))
     assert res.status_code==200
 
-def test_Double_registration():
-    res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
-        token=token,email=email,max_spd=max_spd
-    ))
-    assert res.status_code==400
-
 def test_register_unregistered_token():
-    res=req.get(server_uri+"/register_token/{token}/{email}/{max_spd}".format(
-        token=fake_token,email=email,max_spd=max_spd
+    res=req.get(server_uri+"/register_token/{token}/{client_token}/{max_spd}".format(
+        token=fake_token,client_token=client_token,max_spd=max_spd
     ))
     assert res.status_code==400
 
@@ -56,11 +50,11 @@ def test_get_metadata_by_token():
     ))
     assert res.status_code==200
     json_res=json.loads(res.content)
-    assert set([i for i in json_res.keys()])==set(TOKEN_METADATA_KEYS)
+    assert set([i for i in json_res[0].keys()])==set(TOKEN_METADATA_KEYS)
 
-def test_get_metadata_by_email():
-    res=req.get(server_uri+"/get_metadata_by_email/{email}".format(
-        email=email
+def test_get_metadata_by_client_token():
+    res=req.get(server_uri+"/get_metadata_by_client_token/{client_token}".format(
+        client_token=client_token
     ))
     assert res.status_code==200
     json_res=json.loads(res.content)
@@ -72,9 +66,9 @@ def test_get_metadata_by_token_non_existant():
     ))
     assert res.status_code==400
     
-def test_get_metadata_by_email_non_existant():
-    res=req.get(server_uri+"/get_metadata_by_email/{email}".format(
-        email=fake_token
+def test_get_metadata_by_client_token_non_existant():
+    res=req.get(server_uri+"/get_metadata_by_client_token/{client_token}".format(
+        client_token=fake_token
     ))
     assert res.status_code==400
 
@@ -101,7 +95,7 @@ def test_speed_exceeding_data_alert():
        responses.append(_log_data(token,random.randint(max_spd,max_spd*2)))
        time.sleep(hz)
     assert sum(responses)==dump_req*200
-    res=req.get(server_uri+"/get_notfs/"+email)
+    res=req.get(server_uri+"/get_notfs/"+client_token)
     assert res.status_code==200
 
     json_resp=json.loads(res.content)
@@ -157,9 +151,9 @@ def test_fetch_data_within_time_range_test():
 
 def test_change_car_metadata_test():
     "Test Changing Metadata"
-    res=req.get(server_uri+"/change_car_metadata/{token}/{email}/{max_speed_beta}".format(
+    res=req.get(server_uri+"/change_car_metadata/{token}/{client_token}/{max_speed_beta}".format(
         token=token,
-        email=email,
+        client_token=client_token,
         max_speed_beta=max_spd_beta
     ))
     assert res.status_code==200
@@ -167,13 +161,13 @@ def test_change_car_metadata_test():
         token=token
     ))
     assert res.status_code==200
-    assert int(json.loads(res.content)["max_spd"])==max_spd_beta
+    assert int(json.loads(res.content)[0]["max_spd"])==max_spd_beta
 
 def test_change_car_metadata_nonexistant_test():
     "Test Changing Metadata of nonexistant token"
-    res=req.get(server_uri+"/change_car_metadata/{token}/{email}/{max_speed_beta}".format(
+    res=req.get(server_uri+"/change_car_metadata/{token}/{client_token}/{max_speed_beta}".format(
         token=fake_token,
-        email=email,
+        client_token=client_token,
         max_speed_beta=max_spd_beta
     ))
     assert res.status_code==400
