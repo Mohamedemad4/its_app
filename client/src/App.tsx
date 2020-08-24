@@ -14,12 +14,11 @@ import {helpCircleOutline,mapSharp,settingsOutline} from 'ionicons/icons';
 import AsyncStorage from '@react-native-community/async-storage';
 import HelpScreen from './pages/HelpScreen';
 import MapScreen from './pages/Map';
-import OnBoarding from './pages/OnBoarding';
+import SetMaxSpd from './pages/SetMaxSpd';
 
 import Settings from './pages/Settings';
-import ChangeEmail from './pages/ChangeEmail';
-import ChangeAlertSpeed from './pages/ChangeAlertSpeed';
 import ViewOtherCars from './pages/ViewOtherCars';
+import TokenRegistrar from './pages/TokenRegistrar';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -40,12 +39,31 @@ import './theme/variables.css';
 
 
 function App(){
-  const [email, setEmail] = useState("not_set");
-  AsyncStorage.getItem("email").then((v)=>{
+  const [clientToken, setClientToken] = useState("not_set");
+  
+  const [bottomTab,setbottomTab] = useState(
+    <div>
+      <IonTabButton tab="settings" href="/settings">
+        <IonIcon icon={settingsOutline} />
+        <IonLabel>Settings</IonLabel>
+      </IonTabButton>
+      <IonTabButton tab="map" href="/map">
+        <IonIcon icon={mapSharp} />
+        <IonLabel>Map</IonLabel>
+      </IonTabButton>
+      <IonTabButton tab="help" href="/help">
+        <IonIcon icon={helpCircleOutline} />
+        <IonLabel>Help</IonLabel>
+      </IonTabButton>
+    </div>
+  )
+
+  AsyncStorage.getItem("client_token").then((v)=>{
     if (v!=null){
-      setEmail(v)
+      setClientToken(v)
     }
   })
+
   return (
       <IonApp>
         <IonReactRouter>
@@ -54,36 +72,25 @@ function App(){
             <IonRouterOutlet>
               <Route path="/help" component={HelpScreen} exact={true}/>
               <Route path="/settings" component={Settings} exact={true}/>
-              <Route path="/settings/change_email" component={ChangeEmail} exact={true}/>
-              <Route path="/settings/change_alert_speed" component={ChangeAlertSpeed} exact={true}/>
+              <Route path="/settings/alert_speed" component={SetMaxSpd} exact={true}/>
               <Route path="/settings/view_other_cars" component={ViewOtherCars} exact={true}/>
+              <Route path="/reg_token" component={TokenRegistrar} exact={true}/>
               <Route path="/map" component={MapScreen} exact={true}/>
-              <Route path="/onboarding" component={OnBoarding} exact={true} />
+
               <Route path="/" render={() =>
               {
-                if (email==="not_set") {
-                  return (<Redirect to="/onboarding" />)
+                if (clientToken==="not_set") {
+                  setbottomTab(<span></span>)
+                  return (<Redirect to="/reg_token" />)
                 }else{
                   return (<Redirect to="/map" />)
                 }
               }} exact={true} />
+                
             </IonRouterOutlet>
-
             <IonTabBar slot="bottom">
-              <IonTabButton tab="settings" href="/settings">
-                <IonIcon icon={settingsOutline} />
-                <IonLabel>Settings</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="map" href="/map">
-                <IonIcon icon={mapSharp} />
-                <IonLabel>Map</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="help" href="/help">
-                <IonIcon icon={helpCircleOutline} />
-                <IonLabel>Help</IonLabel>
-              </IonTabButton>
-            </IonTabBar>
-
+              {bottomTab}
+           </IonTabBar>
           </IonTabs>
         </IonReactRouter>
       </IonApp>
