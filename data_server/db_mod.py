@@ -26,7 +26,7 @@ class db_mod():
             
             self.c.execute('''CREATE TABLE registered_cars
                         (car_token VARCHAR(255))''')
-            for i in ["test-token","car1","car2","car3"]:
+            for i in ["test-token-88","1111-1111-1111","2222-2222-2222","3333-3333-3333"]:
                 self.c.execute("INSERT INTO registered_cars VALUES (?)",(i,))
 
             self.conn.commit()

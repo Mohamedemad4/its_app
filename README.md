@@ -10,16 +10,18 @@
  - there is a 30char **hard** limit on token names
  - Expected Hz is .5Hz 
     - i.e 30 logs is a minute of data
- - we have 2 kinds of tokens 
+ - #### About tokens 
+    - We have 2 kinds of tokens
+        - Client Tokens
+            - Set by "login" on the client 
+            - Used for Push notifications and everything else client related by car_token agnostic
 
-    - Client Tokens
-        - Set by "login" on the client 
-        - Used for Push notifications and everything else client related by car_token agnostic
-
-    - Car Tokens
-        - Preset in QR code on the Device it self
-        - Multiple Client tokens can be registered to the Same Car Token
-
+        - Car Tokens
+            - Preset in QR code on the Device it self
+            - Multiple Client tokens can be registered to the Same Car Token
+    - *ALL* Tokens are expected to look like 
+        ```xxxx-xxx-xxxx``
+        this is very critical for Car Tokens since the client expects this to be the case before sending them to the Server 
 ### Config Vars
 
 #### data_server/tests/test_api.py

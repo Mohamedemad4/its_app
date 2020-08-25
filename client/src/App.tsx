@@ -11,7 +11,6 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import {helpCircleOutline,mapSharp,settingsOutline} from 'ionicons/icons';
-import AsyncStorage from '@react-native-community/async-storage';
 import HelpScreen from './pages/HelpScreen';
 import MapScreen from './pages/Map';
 import SetMaxSpd from './pages/SetMaxSpd';
@@ -19,6 +18,7 @@ import SetMaxSpd from './pages/SetMaxSpd';
 import Settings from './pages/Settings';
 import ViewOtherCars from './pages/ViewOtherCars';
 import TokenRegistrar from './pages/TokenRegistrar';
+import NoConn from './pages/NoConnPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,6 +37,14 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
+/**On Storage
+ * client_token string 
+ *    is the client_token (duh!) set by TokenRegistrar on first use
+ * curr_car_token string
+ *    Current token to be monitored set TokenRegistrar 
+ */
+
+import AsyncStorage from '@react-native-community/async-storage';
 
 function App(){
   const [clientToken, setClientToken] = useState("not_set");
@@ -76,7 +84,7 @@ function App(){
               <Route path="/settings/view_other_cars" component={ViewOtherCars} exact={true}/>
               <Route path="/reg_token" component={TokenRegistrar} exact={true}/>
               <Route path="/map" component={MapScreen} exact={true}/>
-
+              <Route path="/no_conn" component={NoConn} exact={true}/>
               <Route path="/" render={() =>
               {
                 if (clientToken==="not_set") {

@@ -4,12 +4,14 @@ import logging
 import functools
 from flask import jsonify
 from gevent.pywsgi import WSGIServer
+from flask_cors import CORS
 from flask import Flask,Request,Response,render_template,request,abort
 from db_mod import db_mod
 from notf_man import notf_manager
 
 app = Flask(__name__)
 app.debug = True
+CORS(app) # avoid cross origin problems
 db_ins=db_mod()
 notf=notf_manager()
 

@@ -6,15 +6,30 @@ import {
 import {arrowForward} from 'ionicons/icons';
 import '../styles/genericStyles.css'
 import { Redirect } from 'react-router-dom';
-
+import conf from '../Globals';
+import AsyncStorage from '@react-native-community/async-storage';
 
 function SetMaxSpd(){
   const [textValue,setTextValue] = useState("")
   const [redirect,SetRedirect] = useState(<span></span>)
   function handleSetMaxSpd(){
-    //call /register_token/<car_token>/<client_token>/<max_spd>
-    alert(textValue)
-    SetRedirect(<Redirect to="/"/>)
+    AsyncStorage.getItem("client_token").then((client_token)=>{
+      if (client_token!=null){
+        AsyncStorage.getItem("curr_car_token").then((car_token)=>{
+          fetch(`${conf.ServerURI}/register_token/${car_token}/${client_token}/${textValue}/`).then((response)=>{
+            if(response.status===200){
+              SetRedirect(<Redirect to="/map"/>)
+            }else{
+              console.log(`Server returned ${response.status}`)
+            }
+          }).catch(error => {
+            console.log(Error(`Failed to get /register_token/${car_token}/${client_token}/${textValue} with error`))
+            console.log(error)
+            SetRedirect(<Redirect to="/no_conn"/>)
+          })
+        })
+      }
+    })
   }
   return (
       <IonPage>
