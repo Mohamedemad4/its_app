@@ -48,24 +48,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 function App(){
   const [clientToken, setClientToken] = useState("not_set");
-  
-  const [bottomTab,setbottomTab] = useState(
-    <div>
-      <IonTabButton tab="settings" href="/settings">
-        <IonIcon icon={settingsOutline} />
-        <IonLabel>Settings</IonLabel>
-      </IonTabButton>
-      <IonTabButton tab="map" href="/map">
-        <IonIcon icon={mapSharp} />
-        <IonLabel>Map</IonLabel>
-      </IonTabButton>
-      <IonTabButton tab="help" href="/help">
-        <IonIcon icon={helpCircleOutline} />
-        <IonLabel>Help</IonLabel>
-      </IonTabButton>
-    </div>
-  )
-
   AsyncStorage.getItem("client_token").then((v)=>{
     if (v!=null){
       setClientToken(v)
@@ -88,7 +70,6 @@ function App(){
               <Route path="/" render={() =>
               {
                 if (clientToken==="not_set") {
-                  setbottomTab(<span></span>)
                   return (<Redirect to="/reg_token" />)
                 }else{
                   return (<Redirect to="/map" />)
@@ -97,7 +78,18 @@ function App(){
                 
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
-              {bottomTab}
+              <IonTabButton tab="settings" href="/settings">
+                <IonIcon icon={settingsOutline} />
+                <IonLabel>Settings</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="map" href="/map">
+                <IonIcon icon={mapSharp} />
+                <IonLabel>Map</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="help" href="/help">
+                <IonIcon icon={helpCircleOutline} />
+                <IonLabel>Help</IonLabel>
+              </IonTabButton>
            </IonTabBar>
           </IonTabs>
         </IonReactRouter>
