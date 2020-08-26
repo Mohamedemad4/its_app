@@ -37,6 +37,8 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
+import {strings} from './Globals'
+
 /**On Storage
  * client_token string 
  *    is the client_token (duh!) set by TokenRegistrar on first use
@@ -80,15 +82,15 @@ function App(){
             <IonTabBar slot="bottom">
               <IonTabButton tab="settings" href="/settings">
                 <IonIcon icon={settingsOutline} />
-                <IonLabel>Settings</IonLabel>
+                <IonLabel>{strings.settings_title}</IonLabel>
               </IonTabButton>
               <IonTabButton tab="map" href="/map">
                 <IonIcon icon={mapSharp} />
-                <IonLabel>Map</IonLabel>
+                <IonLabel>{strings.map_title}</IonLabel>
               </IonTabButton>
               <IonTabButton tab="help" href="/help">
                 <IonIcon icon={helpCircleOutline} />
-                <IonLabel>Help</IonLabel>
+                <IonLabel>{strings.help_title}</IonLabel>
               </IonTabButton>
            </IonTabBar>
           </IonTabs>

@@ -3,7 +3,7 @@ import '../styles/genericStyles.css'
 import {carOutline} from 'ionicons/icons';
 import { IonContent,IonButton,IonIcon,IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { Redirect } from 'react-router-dom';
-import conf from '../Globals'
+import {conf,strings} from '../Globals'
 import AsyncStorage from '@react-native-community/async-storage';
 
 const OnBoarding: React.FC = () => {
@@ -48,7 +48,7 @@ const OnBoarding: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Other Cars</IonTitle>
+          <IonTitle>{strings.settings_view_other_cars_txt}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

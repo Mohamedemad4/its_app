@@ -1,12 +1,12 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-
+import {strings} from '../Globals'
 const MapScreen: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Map</IonTitle>
+          <IonTitle>{strings.map_title}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

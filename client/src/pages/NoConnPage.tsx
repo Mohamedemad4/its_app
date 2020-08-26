@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Redirect} from 'react-router-dom'
 import "../styles/genericStyles.css"
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import conf from "../Globals"
+import {conf,strings} from "../Globals"
 const NoConn: React.FC = () => {
   const [redirect,setRedirect]=useState(<span></span>)
   setTimeout(() => {
@@ -14,14 +14,14 @@ const NoConn: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>No Connection</IonTitle>
+          <IonTitle>{strings.no_conn_title}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
           {redirect}
           <div className="center_up">
-              <h1>Can't Connect to Server</h1>
-              <h2>Try again later</h2>
+              <h1>{strings.no_conn_text1}</h1>
+              <h2>{strings.no_conn_text2}</h2>
           </div>
       </IonContent>
     </IonPage>

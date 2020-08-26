@@ -6,7 +6,7 @@ import {
 import {arrowForward} from 'ionicons/icons';
 import '../styles/genericStyles.css'
 import { Redirect } from 'react-router-dom';
-import conf from '../Globals';
+import {strings,conf} from '../Globals';
 import AsyncStorage from '@react-native-community/async-storage';
 
 function SetMaxSpd(){
@@ -35,7 +35,7 @@ function SetMaxSpd(){
       <IonPage>
         <IonHeader>
           <IonToolbar>
-            <IonTitle>What Would you Like your Alert speed to be?</IonTitle>
+            <IonTitle>{strings.set_spd_title}</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
@@ -43,7 +43,7 @@ function SetMaxSpd(){
             {redirect}
           <IonListHeader lines="full">
             <IonLabel>
-            if your car reaches this speed we will send you and alert.
+              {strings.spd_title_text1}
             </IonLabel>
           </IonListHeader>
             <IonItem>

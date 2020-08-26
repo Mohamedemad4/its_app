@@ -5,7 +5,7 @@ import {
 } from '@ionic/react';
 import { Redirect } from 'react-router-dom';
 import AsyncStorage from '@react-native-community/async-storage';
-import conf from '../Globals';
+import {conf,strings} from '../Globals';
 
 function genUniqueToken() {
     //https://stackoverflow.com/questions/105034/
@@ -25,7 +25,7 @@ class TokenReader extends Component {
     super(props)
     this.state = {
       delay: 500,
-      result: 'No result',
+      result: strings.tr_no_result,
       redirect: <span></span>
       
     }
@@ -44,13 +44,13 @@ class TokenReader extends Component {
                       }
                   }).catch(e=>console.log(e))
                   AsyncStorage.setItem("curr_car_token",result).then(()=>{
-                    this.setState({result:"Got it!",redirect:<Redirect to="/settings/alert_speed"/> })
+                    this.setState({result:strings.tr_success,redirect:<Redirect to="/settings/alert_speed"/> })
                     //somehow close the video reader
                   }).catch(e=>console.log(e))     
               }
               else{
                 console.log(`Server replied with a ${response.status}`)
-                this.setState({ result:"Error identifying Token. Are you Sure this is the Correct QR code?",redirect:<Redirect to="/reg_token"/> }) 
+                this.setState({ result:strings.tr_err_token,redirect:<Redirect to="/reg_token"/> }) 
                }
             })
             .catch(error => {
@@ -59,7 +59,7 @@ class TokenReader extends Component {
                 this.setState({redirect:<Redirect to="/no_conn"/>})
             })
       }else{
-        this.setState({ result:"Error identifying Token. Are you Sure this is the Correct QR code?",redirect:<Redirect to="/reg_token"/> }) 
+        this.setState({ result:strings.tr_err_token,redirect:<Redirect to="/reg_token"/> }) 
       }
     }
   }
@@ -76,7 +76,7 @@ class TokenReader extends Component {
     <IonPage>
         <IonHeader>
           <IonToolbar>
-            <IonTitle>Scan QR code on the device</IonTitle>
+            <IonTitle>{strings.tr_title}</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
