@@ -9,3 +9,17 @@
 .main_btn{
     width:65%
 }
+.leaflet-container {
+    /*100vw is 100% but in CSS3 length units cause it breaks when you say 100%*/
+    height: 100vw;
+    width: 100%;
+  }
+
+.ezno2{
+    text-align: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+    transform: translateY(-20%);
+}

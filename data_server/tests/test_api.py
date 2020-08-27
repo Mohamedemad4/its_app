@@ -9,9 +9,9 @@ hz=.1 # real time is .5hz test time is 10hz
 real_hz=.5
 min_of_speeding_to_alert=.5 #how many minutes should be passed speeding before sending a warning 
 server_uri="http://localhost:7060"#"http://mohamedemad4.pythonanywhere.com"
-token="test-token"
+token="test-token-88"
 fake_token="I-am-not-real"
-client_token="ClientToken69"
+client_token="client-token-69"
 max_spd=30
 max_spd_beta=50
 lat,lon,accuracy=30.0094,31.2086,1.3
@@ -29,6 +29,13 @@ def _log_data(token,speed):
 
 def test_ping():
     res=req.get(server_uri+"/ping")
+    assert res.status_code==200
+
+def test_is_toke_registered():
+    "Test if the /is_car_token_registered endpoint works"
+    res=req.get(server_uri+"/is_car_token_registered/{token}".format(
+        token=token
+    ))
     assert res.status_code==200
 
 def test_registration():

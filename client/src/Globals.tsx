@@ -1,4 +1,5 @@
 import LocalizedStrings from 'react-localization';
+import AsyncStorage from '@react-native-community/async-storage';
 
 let strings = new LocalizedStrings({
     "en":{
@@ -8,6 +9,7 @@ let strings = new LocalizedStrings({
         no_conn_title:"No Connection",
         settings_title:"Settings",
         
+        map_curr_spd_txt:"Current Speed: ",
         no_conn_text1:"Can't Connect to Server",
         no_conn_text2:"Try again later",
         
@@ -23,7 +25,13 @@ let strings = new LocalizedStrings({
 })
 
 const conf={
-    ServerURI: 'http://localhost:7060'
+    ServerURI: 'http://localhost:7060',
+    devmode:true
+}
+
+if (conf.devmode==true){
+    AsyncStorage.setItem('client_token',"client-token-69").catch(e=>console.log(e))
+    AsyncStorage.setItem('curr_car_token',"test-token-88").catch(e=>console.log(e))
 }
 
 export {conf,strings} 
