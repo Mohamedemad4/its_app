@@ -1,4 +1,5 @@
 {
+  "linuxAndroidStudioPath":"/home/daruis1/junk/Downloads/android-studio/bin/studio.sh",
   "appId": "io.ionic.starter",
   "appName": "client",
   "bundledWebRuntime": false,
